@@ -1,0 +1,10 @@
+.Details  {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%
+}
+.Details p {
+  /* align-items: flex-start; */
+  padding: 0px 15px
+}
