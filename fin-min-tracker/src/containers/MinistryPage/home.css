@@ -1,0 +1,60 @@
+.App {
+    text-align: center;
+    margin: none;
+    background-color: #282c34;
+    height: 100%;
+}
+
+.Header {
+    background-color: #385794;
+    height: 90px;
+}
+
+.Header table{
+    padding: 30px;
+}
+
+.ministry{
+    width: 40%;
+    text-align: left;
+    font-size: 19px;
+    color: white;
+}
+
+.Name {
+    display: inline-block;
+    font-size: 27.5px;
+    color: white;
+    width: 255%;
+    text-align: center;
+}
+
+.Contact {
+    width: 220%;
+    font-size: 19px;
+    color: white;
+    text-align: right
+}
+
+.Header td{
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 25px;
+}
+
+.landing {
+    padding: 20px;
+    font-size: 27.5px;
+    color: white;
+    text-align: center;
+}
+
+.carousel .carousel-item>img {
+    width: 220%;
+    height: 150%; 
+    margin-left: -60%;
+}
+
+.main {
+    padding-bottom: 100px;
+}
