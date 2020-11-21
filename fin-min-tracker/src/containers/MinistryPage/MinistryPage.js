@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import Details from '../../components/Details/Details'
-import Table1 from '../../components/Table1/Table1'
-import Table2 from '../../components/Table2/Table2'
+
 import PieChart from '../../components/PieChart/PieChart'
 import BarChart from '../../components/BarChart/BarChart'
 import classes from './MinistryPage.module.css'
+import FirstlevelTable from '../../components/FirstLevelTable/FirstlevelTable'
+import SecondLevelTable from '../../components/SecondLevelTable/SecondLevelTable'
 // import axios from 'axios'
 
 export default class MinistryPage extends Component {
@@ -29,17 +30,15 @@ export default class MinistryPage extends Component {
   }
   render() {
     return (
-      <>
+      <div className={classes.MinistryPage}>
         <Details name={this.state.name} ministerName={this.state.ministerName} email={this.state.email} />
-        <Table1 data={this.state.finances} />
+        <FirstlevelTable data={this.state.finances} />
         <div className={classes.GraphsDiv}>
           <PieChart data={this.state.finances} />
           <BarChart data={this.state.finances} />
         </div>
-        <Table2 data={this.state.finances.breakdown.category} currentBudget={this.state.finances.currentBudget} />
-
--
-      </>
+        <SecondLevelTable data={this.state.finances.breakdown.category} currentBudget={this.state.finances.currentBudget} />
+      </div>
 
     )
   }

@@ -1,5 +1,21 @@
+.MinistryPage {
+  background-color: #282c34;
+  color: white;
+}
+
+
+
+
 .GraphsDiv {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 20px
+}
+
+@media(min-width: 1200px) {
+  .GraphsDiv {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 }

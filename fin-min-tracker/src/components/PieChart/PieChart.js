@@ -32,7 +32,8 @@ export default function PieChart(props) {
             title: {
               display: true,
               text: 'Budget Breakdown',
-              fontSize: 20
+              fontSize: 16,
+              fontColor: 'white'
             },
             legend: {
               display: false,

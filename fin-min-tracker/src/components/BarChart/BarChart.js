@@ -25,13 +25,28 @@ export default function BarChart(props) {
           title: {
             display: true,
             text: 'Budget Comparsion',
-            fontSize: 20
+            fontSize: 16,
+            fontColor: 'white'
           },
           legend: {
             display: false,
             position: 'bottom'
           },
-          maintainAspectRatio: false
+          maintainAspectRatio: false,
+          scales: {
+            xAxes: [{
+              display: true,
+              ticks: {
+                fontColor: 'white'
+              }
+            }],
+            yAxes: [{
+              display: false,
+              ticks: {
+                fontColor: 'white'
+              }
+            }]
+          }
         }}
       />
     </div>

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import './containers/MinistryPage/home.css'
+import './containers/Home/home.css'
 import axios from 'axios';
-import Navbar from './containers/MinistryPage/navbar';
-import Home from './containers/MinistryPage/home';
+import Navbar from './components/Navbar/navbar';
+import Home from './containers/Home/home';
 import MinistryPage from './containers/MinistryPage/MinistryPage';
 
 
@@ -25,14 +25,15 @@ export default class App extends Component {
     //   return <MinistryPage minName={ministry} />
     // })
     return (
-      <div className= "App">
-        <Navbar />
+      <div>
+        {/* // <div className="App"> */}
+        {/* <Navbar />
         <div class="landing">
           <p className="landing1">MINISTRIES</p>
           <Home />
-        </div>
+        </div> */}
         {/* { dynamicMinistries} */}
-        {/* <MinistryPage minName={this.state.ministries[0]} /> */}
+        <MinistryPage minName={this.state.ministries[0]} />
       </div>
     )
   }
