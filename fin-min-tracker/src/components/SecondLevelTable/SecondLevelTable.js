@@ -13,9 +13,9 @@ export default function FirstlevelTable(props) {
 
   }
 
-  console.log(props.data);
+
   const financeArray = Object.keys(props.data);
-  console.log(financeArray);
+
   const tableRows = financeArray.map((title) => {
     return <tr key={title}>
       <td>{(title)}</td>
@@ -24,7 +24,7 @@ export default function FirstlevelTable(props) {
       <td>{findPercent(props.data[title].current, props.data[title].total)}</td>
     </tr>
   })
-  console.log(tableRows);
+
 
   return (
     <>
