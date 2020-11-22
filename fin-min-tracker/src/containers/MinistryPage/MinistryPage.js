@@ -21,19 +21,24 @@ export default class MinistryPage extends Component {
 
   componentDidMount() {
     // the minName doesnt seem to be coming here?
-    let minName = this.props.minName
-    const api = 'https://ashokafinanceministry.herokuapp.com/api/'
-    const token = 'finmin00'
-    axios.get(api + minName, { headers: { "Authorization": `Bearer ${token}` } })
-      .then(res => {
-        this.setState({
-          name: res.data.name,
-          ministerName: res.data.ministerName,
-          email: res.data.ministerEmail,
-          finances: res.data.finances,
-          ready: true
+    if (this.props.minName) {
+      let minName = this.props.minName
+      const api = 'https://ashokafinanceministry.herokuapp.com/api/'
+      const token = 'finmin00'
+      console.log(minName);
+      axios.get(api + minName, { headers: { "Authorization": `Bearer ${token}` } })
+        .then(res => {
+          console.log(res.data);
+          console.log('ministry page update');
+          this.setState({
+            name: res.data.name,
+            ministerName: res.data.ministerName,
+            email: res.data.ministerEmail,
+            finances: res.data.finances
+          })
+          console.log(this.state.name)
         })
-      })
+    }
   }
 
   componentDidUpdate() {
