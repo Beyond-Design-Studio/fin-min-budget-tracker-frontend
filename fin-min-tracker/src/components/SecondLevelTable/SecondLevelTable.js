@@ -10,26 +10,31 @@ export default function FirstlevelTable(props) {
     <>
       <h4 className={styles.Title}>Second Level Finances</h4>
       <table className={styles.Table}>
-        <tr className={styles.Heading}>
-          <th>Title</th>
-          <th>Amount</th>
-          <th>Proportion</th>
-        </tr>
-        <tr>
-          <td>Events</td>
-          <td>{props.data.events}</td>
-          <td>{findPercent(props.data.events)}%</td>
-        </tr>
-        <tr>
-          <td>Assets</td>
-          <td>{props.data.assets}</td>
-          <td>{findPercent(props.data.assets)}%</td>
-        </tr>
-        <tr>
-          <td>Other</td>
-          <td>{props.data.other}</td>
-          <td>{findPercent(props.data.other)}%</td>
-        </tr>
+        <thead>
+          <tr className={styles.Heading}>
+            <th>Title</th>
+            <th>Amount</th>
+            <th>Proportion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Events</td>
+            <td>{props.data.events}</td>
+            <td>{findPercent(props.data.events)}%</td>
+          </tr>
+          <tr>
+            <td>Assets</td>
+            <td>{props.data.assets}</td>
+            <td>{findPercent(props.data.assets)}%</td>
+          </tr>
+          <tr>
+            <td>Other</td>
+            <td>{props.data.other}</td>
+            <td>{findPercent(props.data.other)}%</td>
+          </tr>
+
+        </tbody>
 
       </table>
     </>
