@@ -2,6 +2,26 @@ import React from 'react'
 import styles from './FirstLevelTable.module.css'
 
 export default function FirstlevelTable(props) {
+  function unCamelCase(str) {
+    return str
+      // insert a space between lower & upper
+      .replace(/([a-z])([A-Z])/g, '$1 $2')
+      // space before last upper in a sequence followed by lower
+      .replace(/\b([A-Z]+)([A-Z])([a-z])/, '$1 $2$3')
+      // uppercase the first character
+      .replace(/^./, function (str) { return str.toUpperCase(); })
+  }
+  const financeArray = Object.keys(props.data);
+  const data = props.data
+  financeArray.splice(0, 1)
+  const tableRows = financeArray.map((title) => {
+    return <tr key={title}>
+      <td>{unCamelCase(title)}</td>
+      <td>{data[title]}</td>
+    </tr>
+  })
+
+
   return (
     <>
       <h4 className={styles.Title}>First Level Finances</h4>
@@ -13,22 +33,7 @@ export default function FirstlevelTable(props) {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Total Budget</td>
-            <td>{props.data.totalBudget}</td>
-          </tr>
-          <tr>
-            <td>Spendings</td>
-            <td>{props.data.spendings}</td>
-          </tr>
-          <tr>
-            <td>Earnings</td>
-            <td>{props.data.earnings}</td>
-          </tr>
-          <tr>
-            <td>Current Budget</td>
-            <td>{props.data.currentBudget}</td>
-          </tr>
+          {tableRows}
         </tbody>
 
       </table>

@@ -2,10 +2,30 @@ import React from 'react'
 import styles from './SecondLevelTable.module.css'
 
 export default function FirstlevelTable(props) {
-  const findPercent = (n) => {
-    let percent = (n / (props.currentBudget)) * 100
-    return percent
+  const findPercent = (current, total) => {
+    if ((current === 0) || (total === 0)) {
+      return '-'
+    }
+    else {
+      let percent = (current / total) * 100
+      return percent + '%'
+    }
+
   }
+
+  console.log(props.data);
+  const financeArray = Object.keys(props.data);
+  console.log(financeArray);
+  const tableRows = financeArray.map((title) => {
+    return <tr key={title}>
+      <td>{(title)}</td>
+      <td>{props.data[title].current}</td>
+      <td>{props.data[title].total}</td>
+      <td>{findPercent(props.data[title].current, props.data[title].total)}</td>
+    </tr>
+  })
+  console.log(tableRows);
+
   return (
     <>
       <h4 className={styles.Title}>Second Level Finances</h4>
@@ -13,27 +33,13 @@ export default function FirstlevelTable(props) {
         <thead>
           <tr className={styles.Heading}>
             <th>Title</th>
-            <th>Amount</th>
-            <th>Proportion</th>
+            <th>Current</th>
+            <th>Total</th>
+            <th>Proportion of Budget</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Events</td>
-            <td>{props.data.events}</td>
-            <td>{findPercent(props.data.events)}%</td>
-          </tr>
-          <tr>
-            <td>Assets</td>
-            <td>{props.data.assets}</td>
-            <td>{findPercent(props.data.assets)}%</td>
-          </tr>
-          <tr>
-            <td>Other</td>
-            <td>{props.data.other}</td>
-            <td>{findPercent(props.data.other)}%</td>
-          </tr>
-
+          {tableRows}
         </tbody>
 
       </table>

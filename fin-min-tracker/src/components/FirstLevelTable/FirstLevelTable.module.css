@@ -9,3 +9,6 @@
   text-align: center;
   padding: 15px 0px
 }
+th, td {
+  text-align: center;
+}
