@@ -22,7 +22,10 @@ export default class App extends Component {
         let ministriesObj = response.data;
         let ministriesList = Object.keys(ministriesObj)
         this.setState({ ministries: ministriesList })
-      });
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   render() {

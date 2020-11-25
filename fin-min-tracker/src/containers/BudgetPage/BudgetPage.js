@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import ExpandableTable from '../../components/ExpandableTable/ExpandableTable'
+import styles from './BudgetPage.module.css'
 export default class BudgetPage extends Component {
   state = {
     ready: false,
@@ -35,9 +36,11 @@ export default class BudgetPage extends Component {
 
   render() {
     return (
-      <div>
-        <ExpandableTable budget={this.state.budget} />
-      </div>
+      <div style={{ height: '100vw' }}>
+        <h1 className={styles.Title}>Budget Page for {this.props.minName} Ministry</h1>
+        <span className='align-middle'><ExpandableTable budget={this.state.budget} /> </span >
+
+      </div >
     )
   }
 }

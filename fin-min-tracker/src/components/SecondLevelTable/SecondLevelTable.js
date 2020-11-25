@@ -7,7 +7,7 @@ export default function FirstlevelTable(props) {
       return '-'
     }
     else {
-      let percent = (current / total) * 100
+      let percent = Math.round((current / total) * 100)
       return percent + '%'
     }
 
