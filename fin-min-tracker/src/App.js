@@ -6,6 +6,7 @@ import axios from 'axios';
 // import Navbar from './components/Navbar/navbar';
 // import Home from './containers/Home/home';
 import MinistryPage from './containers/MinistryPage/MinistryPage';
+import BudgetPage from './containers/BudgetPage/BudgetPage';
 
 
 export default class App extends Component {
@@ -37,7 +38,8 @@ export default class App extends Component {
           <Home />
         </div> */}
         {/* { dynamicMinistries} */}
-        <MinistryPage minName={this.state.ministries[0]} />
+        {/* <MinistryPage minName={this.state.ministries[3]} /> */}
+        <BudgetPage minName={this.state.ministries[3]} />
       </div>
     )
   }

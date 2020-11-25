@@ -1,0 +1,32 @@
+.Container {
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  grid-template-rows: 40% 60% ;
+  top: 50%;
+  /* height: 80vh; */
+}
+
+.Table {
+ grid-column-start: 2;
+ grid-row-start: 2;
+  /* height: 100%; */
+  
+  text-align: center;
+}
+.Heading {
+  background-color: #3E6284;
+}
+.Title {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  padding: 15px 0px
+}
+
+th, td {
+  text-align: center;
+}
+
+.modalAvailable {
+  cursor: pointer;
+}
