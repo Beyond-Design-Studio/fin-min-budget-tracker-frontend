@@ -5,7 +5,8 @@ import Modal from '../../containers/Modal/Modal'
 export default class ExpandableTable extends Component {
   state = {
     rowClicked: null,
-    modalVisible: false
+    modalVisible: false,
+    categoryTitle: null
   }
 
   rowClickedHandler = (title) => {
@@ -53,7 +54,7 @@ export default class ExpandableTable extends Component {
             modalVisible
 
               ? <>
-                <Modal tags={this.props.budget[this.state.rowClicked].tags} clicked={this.modalToggleHandler} />
+                <Modal tags={this.props.budget[this.state.rowClicked].tags} clicked={this.modalToggleHandler} minName={this.props.minName} categoryTitle={this.state.rowClicked} />
                 <div class="table-responsive ">
                   <table class='table table-bordered'>
                     <thead class='thead-dark'>

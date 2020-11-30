@@ -38,7 +38,7 @@ export default class BudgetPage extends Component {
     return (
       <div style={{ backgroundColor: 'white' }}>
         <h1 className={styles.Title}>Budget Page for {this.props.minName} Ministry</h1>
-        <ExpandableTable budget={this.state.budget} />
+        <ExpandableTable budget={this.state.budget} minName={this.props.minName} />
 
       </div >
     )
