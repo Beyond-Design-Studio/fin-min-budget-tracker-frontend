@@ -19,18 +19,27 @@ class home extends Component {
 
     render() {
         return (
-            <div className="grid-container">
-                <main className="main">
-                    <div class="carousel center">
-                        <a class="carousel-item" ><img src={sky} /></a>
-                        <a class="carousel-item" ><img src={sky} /></a>
-                        <a class="carousel-item" ><img src={sky} /></a>
-                    </div>
-                </main>
+            // <div className="grid-container">
+            //     <main className="main">
+            //         <div class="carousel center">
+            //             <a class="carousel-item" ><img src={sky} /></a>
+            //             <a class="carousel-item" ><img src={sky} /></a>
+            //             <a class="carousel-item" ><img src={sky} /></a>
+            //         </div>
+            //     </main>
+            // </div>
+            <div class="carousel">
+                <a class="carousel-item" href="#one!"><img src={sky} /></a>
+                <a class="carousel-item" href="#two!"><img src={sky} /></a>
+                <a class="carousel-item" href="#three!"><img src={sky} /></a>
+                <a class="carousel-item" href="#four!"><img src={sky} /></a>
+                <a class="carousel-item" href="#five!"><img src={sky} /></a>
             </div>
+
 
         )
     }
 }
+
 
 export default home

@@ -3,8 +3,8 @@ import './App.css';
 import './containers/Home/home.css'
 import axios from 'axios';
 
-// import Navbar from './components/Navbar/navbar';
-// import Home from './containers/Home/home';
+import Navbar from './components/Navbar/navbar';
+import Home from './containers/Home/home';
 import MinistryPage from './containers/MinistryPage/MinistryPage';
 import BudgetPage from './containers/BudgetPage/BudgetPage';
 
@@ -33,15 +33,15 @@ export default class App extends Component {
     //   return <MinistryPage minName={ministry} />
     // })
     return (
-      <div>
-        {/* // <div className="App"> */}
+      <div className="App">
         {/* <Navbar />
         <div class="landing">
           <p className="landing1">MINISTRIES</p>
           <Home />
         </div> */}
-        {/* { dynamicMinistries} */}
-        {/* <MinistryPage minName={this.state.ministries[3]} /> */}
+
+        {/* {dynamicMinistries} */}
+        < MinistryPage minName={this.state.ministries[3]} />
         <BudgetPage minName={this.state.ministries[3]} />
       </div>
     )
