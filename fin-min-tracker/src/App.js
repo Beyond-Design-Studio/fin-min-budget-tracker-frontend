@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component} from 'react';
+import {Route, Switch} from "react-router-dom";
+
 import './App.css';
 import './containers/Home/home.css'
 import axios from 'axios';
@@ -49,7 +51,10 @@ export default class App extends Component {
         < MinistryPage minName={this.state.ministries[3]} />
         <BudgetPage minName={this.state.ministries[3]} />
         <TransactionPage minName={this.state.ministries[3]} />
-      </div>
+        <Switch>
+          <Route path="/home" component={Home} />
+        </Switch> 
+      </div> 
     )
   }
 }
