@@ -1,23 +1,21 @@
 import React, { Component } from 'react';
 import { Route, Switch } from "react-router-dom";
-
+import NavbarComp from './containers/Navbar/Navbar'
 import './App.css';
 import './containers/Home/home.css'
 import axios from 'axios';
 
-import Navbar from './components/Navbar/navbar';
+
 import Home from './containers/Home/home';
 import MinistryPage from './containers/MinistryPage/MinistryPage';
 import BudgetPage from './containers/BudgetPage/BudgetPage';
 import TransactionPage from './containers/TransactionsPage/TransactionPage';
 
-import MinistryCards from './components/MinistryCards/MinistryCards';
+
 
 
 export default class App extends Component {
   state = {
-    // ministries: ['Academic Affairs', 'Campus Life', 'Community Well-Being', 'Finance', 'Cultural', 'Parlimentary Affairs', 'Sports', 'Enviornment', 'Technology',
-    //   'House Reserve', 'Interim Budget Reserve']
     ministries: []
   }
 
@@ -49,17 +47,13 @@ export default class App extends Component {
 
     return (
       <div className="App">
-        {/* <Home ministries={this.state.ministries} /> */}
+        <NavbarComp />
         <Switch>
           <Route path='/' exact render={routerProps => (<Home {...routerProps} ministries={this.state.ministries} />)} />
           <Route path='/overview/:ministry' render={routerProps => (renderMinistryPage(routerProps))} />
           <Route path='/budget/:ministry' render={routerProps => (renderBudgetPage(routerProps))} />
           <Route path='/transactions/:ministry' render={routerProps => (renderTransactionsPage(routerProps))} />
         </Switch>
-
-        {/* < MinistryPage minName={this.state.ministries[3]} /> */}
-        {/* <BudgetPage minName={this.state.ministries[3]} /> */}
-        {/* <TransactionPage minName={this.state.ministries[3]} /> */}
 
       </div>
     )
