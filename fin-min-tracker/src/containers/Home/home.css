@@ -49,12 +49,15 @@
     text-align: center;
 }
 
-.carousel .carousel-item>img {
+/* .carousel .carousel-item>img {
     width: 220%;
     height: 150%; 
     margin-left: -60%;
-}
+} */
 
 .main {
     padding-bottom: 100px;
+}
+.Slide {
+    background-color: whi;
 }

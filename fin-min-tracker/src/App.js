@@ -1,5 +1,5 @@
-import React, { Component} from 'react';
-import {Route, Switch} from "react-router-dom";
+import React, { Component } from 'react';
+import { Route, Switch } from "react-router-dom";
 
 import './App.css';
 import './containers/Home/home.css'
@@ -46,15 +46,13 @@ export default class App extends Component {
         </div> */}
 
         {/* {dynamicMinistries} */}
-        <MinistryCards />
-
-        < MinistryPage minName={this.state.ministries[3]} />
+        {/* <MinistryCards /> */}
+        <Home ministries={this.state.ministries} />
+        {/* < MinistryPage minName={this.state.ministries[3]} />
         <BudgetPage minName={this.state.ministries[3]} />
-        <TransactionPage minName={this.state.ministries[3]} />
-        <Switch>
-          <Route path="/home" component={Home} />
-        </Switch> 
-      </div> 
+        <TransactionPage minName={this.state.ministries[3]} /> */}
+
+      </div>
     )
   }
 }
