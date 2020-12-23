@@ -34,23 +34,32 @@ export default class App extends Component {
   }
 
   render() {
-    // const dynamicMinistries = this.state.ministries.map(ministry => {
-    //   return <MinistryPage minName={ministry} />
-    // })
+    const renderMinistryPage = (routerProps) => {
+      let ministry = routerProps.match.params.ministry
+      return (<MinistryPage minName={ministry} />)
+    }
+    const renderBudgetPage = (routerProps) => {
+      let ministry = routerProps.match.params.ministry
+      return (<BudgetPage minName={ministry} />)
+    }
+    const renderTransactionsPage = (routerProps) => {
+      let ministry = routerProps.match.params.ministry
+      return (<TransactionPage minName={ministry} />)
+    }
+
     return (
       <div className="App">
-        {/* <Navbar />
-        <div class="landing">
-          <p className="landing1">MINISTRIES</p>
-          <Home />
-        </div> */}
+        {/* <Home ministries={this.state.ministries} /> */}
+        <Switch>
+          <Route path='/' exact render={routerProps => (<Home {...routerProps} ministries={this.state.ministries} />)} />
+          <Route path='/overview/:ministry' render={routerProps => (renderMinistryPage(routerProps))} />
+          <Route path='/budget/:ministry' render={routerProps => (renderBudgetPage(routerProps))} />
+          <Route path='/transactions/:ministry' render={routerProps => (renderTransactionsPage(routerProps))} />
+        </Switch>
 
-        {/* {dynamicMinistries} */}
-        {/* <MinistryCards /> */}
-        <Home ministries={this.state.ministries} />
-        {/* < MinistryPage minName={this.state.ministries[3]} />
-        <BudgetPage minName={this.state.ministries[3]} />
-        <TransactionPage minName={this.state.ministries[3]} /> */}
+        {/* < MinistryPage minName={this.state.ministries[3]} /> */}
+        {/* <BudgetPage minName={this.state.ministries[3]} /> */}
+        {/* <TransactionPage minName={this.state.ministries[3]} /> */}
 
       </div>
     )
