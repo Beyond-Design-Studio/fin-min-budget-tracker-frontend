@@ -1,6 +1,8 @@
 import React from 'react'
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
+// authentication
+import SignInScreen from '../../components/Authentication/authentication'
 
 export default function NavbarComponent() {
   return (
@@ -8,6 +10,9 @@ export default function NavbarComponent() {
       <Navbar.Brand as={Link} to="/" >FinMin</Navbar.Brand>
       <Navbar.Collapse>
         <Nav className="ml-auto">
+          <NavItem>
+            <SignInScreen/>
+          </NavItem>
           <NavItem eventkey={1} href="/">
             <Nav.Link as={Link} to="/contact-us" >Contact Us</Nav.Link>
           </NavItem>

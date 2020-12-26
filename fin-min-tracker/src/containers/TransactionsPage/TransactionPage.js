@@ -34,6 +34,15 @@ export default class TransactionPage extends Component {
           })
         })
     }
+
+    // to create rows in the table:
+    dynamicRowRender = (transactions, index) => {
+      return (
+        <tr key={index} style={{ background: transaction.type === "spendings" ? "#eb4d4d" : "#9fff85"}}>
+          
+        </tr>
+      )
+    }
   }
   render() {
     return (

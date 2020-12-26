@@ -14,6 +14,8 @@ import TransactionPage from './containers/TransactionsPage/TransactionPage';
 
 
 
+
+
 export default class App extends Component {
   state = {
     ministries: []
@@ -48,17 +50,17 @@ export default class App extends Component {
     return (
       <div className="App">
         <NavbarComp />
+        
         <Switch>
           <Route path='/' exact render={routerProps => (<Home {...routerProps} ministries={this.state.ministries} />)} />
           <Route path='/overview/:ministry' render={routerProps => (renderMinistryPage(routerProps))} />
           <Route path='/budget/:ministry' render={routerProps => (renderBudgetPage(routerProps))} />
           <Route path='/transactions/:ministry' render={routerProps => (renderTransactionsPage(routerProps))} />
         </Switch>
-
       </div>
     )
   }
-}
+} 
 
 
 
