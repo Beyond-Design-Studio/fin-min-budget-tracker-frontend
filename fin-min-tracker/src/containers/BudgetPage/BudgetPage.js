@@ -13,8 +13,11 @@ export default class BudgetPage extends Component {
     const token = 'finmin00'
     axios.get(api + minName + '/budget', { headers: { "Authorization": `Bearer ${token}` } })
       .then(res => {
-        // console.log('mount', res.data);
-
+        console.log('mount', res.data);
+        this.setState({
+          ready: true,
+          budget: res.data
+        })
       })
   }
 
