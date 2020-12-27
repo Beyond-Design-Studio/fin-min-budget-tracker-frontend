@@ -28,5 +28,8 @@
     top: 20%;
     left: 20%;
     height: 70%;
+    overflow: scroll;
+    max-height: 722px;
   }
 }
+

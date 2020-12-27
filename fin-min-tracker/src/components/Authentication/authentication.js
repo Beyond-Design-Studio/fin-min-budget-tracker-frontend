@@ -23,7 +23,7 @@ try {
 const uiConfig = {
     // Popup signin flow rather than redirect flow.
     signInFlow: 'popup',
-    // We will display Google and Facebook as auth providers.
+    // We will display Google as auth provider.
     signInOptions: [
         firebase.auth.GoogleAuthProvider.PROVIDER_ID
     ],
@@ -50,10 +50,9 @@ function SignInScreen() {
                 <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
             </div>
         );
-    }
+    }     
     return (
         <div>
-            <h1>My App</h1>
             <p>Welcome {firebase.auth().currentUser.displayName}! You are now signed-in!</p>
             <a onClick={() => firebase.auth().signOut()}>Sign-out</a>
         </div>

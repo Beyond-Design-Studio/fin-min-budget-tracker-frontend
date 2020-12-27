@@ -1,18 +1,46 @@
-import React, { Component } from 'react'
-import styles from './SecondModal.module.css'
+import React, { Component, useEffect, useState } from 'react'
+import './SecondModal.module.css'
+import M from 'materialize-css'
 import Backdrop from '../../containers/Backdrop/Backdrop'
 import Axios from 'axios'
-export default class Modal extends Component {
-  state = {
-    data: null,
-    ready: false
-  }
-  componentDidMount() {
-    let minName = this.props.minName
+
+const CollapseRow = (props) => {
+  const [toggleClick, setToggleClick] = useState(false);
+  return (
+    <tbody>
+      <tr className="collapse-head" onClick={() => setToggleClick(!toggleClick)}>
+        <td>+</td>
+        <td>{props.dataVal.tags}</td>
+        <td>{props.dataVal.total}</td>
+        <td>{props.dataVal.details}</td>
+        <td>{props.dataVal.date}</td>
+      </tr>
+      {toggleClick &&
+      <tr style={{"align": "ce"}}>
+      <h1 id="title">React Dynamic Table</h1>
+      <table id="personnel">
+        <tbody>Some</tbody>
+      </table>
+      <hr />
+      <table id="status">
+        <tbody>thing</tbody>
+      </table>
+    </tr>
+      }
+    </tbody>
+  );
+};
+
+export default function Modal(props) {
+  const [data, setData] = useState(null);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    let minName = props.minName
     const api = 'https://ashokafinanceministry.herokuapp.com/api/'
     const token = 'finmin00'
-    const categoryTitle = this.props.categoryTitle
-    const tagTitle = this.props.tag
+    const categoryTitle = props.categoryTitle
+    const tagTitle = props.tag
 
     let config = {
       headers: { "Authorization": `Bearer ${token}` },
@@ -23,133 +51,49 @@ export default class Modal extends Component {
     }
     Axios.get(api + minName + '/budget' + '/filter', config)
       .then(res => {
-        // console.log(res.data);
-        this.setState({
-          data: res.data,
-          ready: true
-        })
+        setData(res.data);
+        setReady(true);
       })
+  }, []);
 
-  }
-  componentDidUpdate() {
-    if (!this.state.ready) {
-      let minName = this.props.minName
-      const api = 'https://ashokafinanceministry.herokuapp.com/api/'
-      const token = 'finmin00'
-      const categoryTitle = this.props.categoryTitle
-      const tagTitle = this.props.tag
+  const dataKeys = data? Object.keys(data): null;
+  const dataValue = data; 
+  console.log(data)
 
-      let config = {
-        headers: { "Authorization": `Bearer ${token}` },
-        params: {
-          category: categoryTitle,
-          tags: tagTitle
-        }
-      }
-      Axios.get(api + minName + '/budget' + '/filter', config)
-        .then(res => {
-          // console.log(res.data);
-          this.setState({
-            data: res.data,
-            ready: true
-          })
-        })
-    }
-  }
-  render() {
-    let dataTables = 'Nothing to Show Here'
-    if (this.state.data) {
-      const dataArray = Object.keys(this.state.data)
-      const data = this.state.data
-      dataTables = dataArray.map((element, index) => {
-        const { bundle, category, addedAt, description, details, link, status, tags, total, type } = this.state.data[element]
-        console.log(new Date(addedAt));
-        return (
-          <>
-            <h5>{index}</h5>
-            <table className={styles.Table}>
-              <tr>
-                <th>
-                  Category
-              </th>
-                <td>{category}</td>
-              </tr>
-              <tr>
-                <th>
-                  Tag
-              </th>
-                <tr>
-                  {tags}
-                </tr>
-              </tr>
-              <tr>
-                <th>
-                  Description
-              </th>
-                <tr>
-                  {description}
-                </tr>
-              </tr>
-              <tr>
-                <th>
-                  Date
-              </th>
-                <tr>
-                  {addedAt}
-                </tr>
-              </tr>
-              <tr>
-                <th>
-                  Details
-              </th>
-                <tr>
-                  {details}
-                </tr>
-              </tr>
-              <tr>
-                <th>
-                  Value
-              </th>
-                <tr>
-                  {total}
-                </tr>
-              </tr>
-              <tr>
-                <th>
-                  Status
-              </th>
-                <tr>
-                  {status}
-                </tr>
-              </tr>
-              <tr>
-                <th>
-                  Link
-              </th>
-                <tr>
-                  {link}
-                </tr>
-              </tr>
-            </table>
-          </>
+  const dynamicRows = dataKeys?dataKeys.map(index => {
+            return (
+              <CollapseRow dataVal={dataValue[index]}/>
+            )}):<></>
 
-        )
-      })
-    }
-
-    return (
-      <div>
-
-        <div className={styles.Modal}>
-          {dataTables}
-
-        </div>
-
-        <Backdrop clicked={this.props.clicked} />
+  return (
+    <div>
+      {data && 
+        <div className="table-responsive">
+        <table className="table table-borderless">
+          <thead className='thead-dark'>
+              <tr >
+                <th >#</th>
+                <th>Tag</th>
+                <th >Value</th>
+                <th>Details</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            {dynamicRows}
+        </table>
       </div>
+      }
+      
+      {!data && 
+      <div>
+        <div className="Modal">
+          Nothing to show here
+        </div>
+        <Backdrop clicked={props.clicked} />
+      </div>
+      }
+  </div>
 
-
-    )
-  }
+  )
 
 }
