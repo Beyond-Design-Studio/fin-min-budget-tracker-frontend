@@ -123,7 +123,7 @@ export default function Modal(props) {
   return (
     <div>
       {data &&
-        <div className="table-responsive">
+        <div className="table-responsive" style={{"maxHeight": "622px", "overflow-y":"scroll"}}>
           <table className="table table-borderless">
             <thead className='thead-dark'>
               <tr >
@@ -141,7 +141,7 @@ export default function Modal(props) {
 
       {!data &&
         <div>
-          <div className="Modal">
+          <div className="Modal" style={{"maxHeight": "100px"}}>
             Nothing to show here
         </div>
           <Backdrop clicked={props.clicked} />
