@@ -7,19 +7,176 @@
   box-shadow: 1px 1px 1px black;
   padding: 16px;
   top: 0%;
-  overflow-y: scroll;
+  overflow-y: auto;
+}
+
+.DetailsContainer {
+  height: 60vh;
+  width: 56vw;
+  display: grid;
+  grid-template-rows: 35% 45% 15%;
+}
+.SummaryDash {
+  grid-row: 1 /2;
+  display: grid;
+  grid-template-columns: 30% 35% 35%;
+  grid-template-rows: repeat(4, 25%);
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
+}
+.GeneralDash {
+  grid-row: 2/3;
+  display: grid;
+  grid-template-columns: 30% 35% 35%;
+  grid-template-rows: repeat(4, 25%) ;
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
+}
+.TrackDash {
+  grid-row: 3/end;
+  display: grid;
+  grid-template-columns: 30% 35% 35%;
+  grid-template-rows: 50% 50%;
+}
+.SummaryHeader {
+  grid-column: 1/2;
+  grid-row: 2/4;
+  align-self: center;
+}
+.SummaryTitle1 {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: 			#606060;
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+.SummaryTitle2 {
+  font-weight: bold;  
+  text-transform: uppercase;
+  color: 			#606060;
+  grid-column: 3/4;
+  grid-row: 1/2;
+}
+.SummaryValue1 {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+.SummaryValue2 {
+  grid-column: 3/4;
+  grid-row: 2/3;
+}
+.SummaryTitle3 {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: 			#606060;
+  grid-column: 2/3;
+  grid-row: 3/4;
+}
+.SummaryTitle4 {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: 			#606060;
+  grid-column: 3/4;
+  grid-row: 3/4;
+}
+.SummaryValue3 {
+  grid-column: 2/3;
+  grid-row: 4/end;
+}
+.SummaryValue4 {
+  grid-column: 3/4;
+  grid-row: 4/end;
 }
 
 
-.Table {
-  font-size: 0.9em;
-  padding: 50px 10px;
-  /* align-items: center; */
-  margin-left:auto; 
-    margin-right:auto;
+.GeneralHeader {
+  grid-row: 2/4;
+  grid-column: 1/2;
+  align-self: center;
 }
-.Table td{
-  align-self: center
+.GeneralTitle1 {
+  grid-row: 1/2;
+  grid-column: 2/3;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: 			#606060;
+}
+.GeneralTitle2 {
+  grid-row: 1/2;
+  grid-column: 3/4;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: 			#606060;
+}
+.GeneralTitle3 {
+  grid-row: 3/4;
+  grid-column: 2/3;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: 			#606060;
+}
+.GeneralTitle4 {
+  grid-row: 3/4;
+  grid-column: 3/4;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: 			#606060;
+}
+.GeneralTitle5 {
+  grid-row: 2/3;
+  grid-column: 2/end;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: 			#606060;
+}
+
+.GeneralValue1{
+  grid-row:2/3;
+  grid-column:2/3
+}
+.GeneralValue2{
+  grid-row:2/3;
+  grid-column:3/4
+}
+.GeneralValue3{
+  grid-row:4/5;
+  grid-column:2/3;
+}
+.GeneralValue4{
+  grid-row:4/5;
+  grid-column:3/4;
+}
+.GeneralValue5{
+  grid-row:3/4;
+  grid-column:2/end;
+}
+
+.TrackHeader {
+  grid-row: 1/3;
+  grid-column: 1/2;
+  align-self: center;
+}
+.TrackTitle1 {
+  grid-row: 1/2;
+  grid-column: 2/3;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: 			#606060;
+}
+.TrackTitle2 {
+  grid-row: 1/2;
+  grid-column: 3/4;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: 			#606060;
+}
+.TrackValue1 {
+  grid-row: 2/3;
+  grid-column: 2/3;
+}
+.TrackValue2 {
+  grid-row: 2/3;
+  grid-column: 3/4;
 }
 
 @media (min-width: 800px) {
