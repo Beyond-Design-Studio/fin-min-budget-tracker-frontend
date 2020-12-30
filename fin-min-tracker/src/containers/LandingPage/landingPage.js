@@ -1,4 +1,5 @@
 import React from "react";
+import SignInScreen from '../../components/Authentication/authentication'
 import "./landingPage.css";
 
 
@@ -19,17 +20,17 @@ const Landing = () => {
           <form className="col s12">
             <div className="row">
               <div class="input-field col s12">
-                <input id="email" type="email" class="validate" />
-                <label for="email">Email</label>
+              <SignInScreen/>
+
               </div>
             </div>
-            <div className="row">
+            {/* <div className="row">
               <div class="input-field col s12">
                 <input id="password" type="password" class="validate" />
                 <label for="password">Password</label>
               </div>
-            </div>
-            <button className="waves-effect waves-light btn-large">Submit</button>
+            </div> */}
+            {/* <button className="waves-effect waves-light btn-large">Submit</button> */}
           </form>
         </div>
       </div>
