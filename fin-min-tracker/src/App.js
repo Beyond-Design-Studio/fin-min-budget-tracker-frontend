@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Route, Switch } from "react-router-dom";
+import React, {Component} from 'react';
+import {Route, Switch} from "react-router-dom";
 import NavbarComp from './containers/Navbar/Navbar'
 import './App.css';
 import './containers/Home/home.css'
@@ -10,8 +10,7 @@ import Home from './containers/Home/home';
 import MinistryPage from './containers/MinistryPage/MinistryPage';
 import BudgetPage from './containers/BudgetPage/BudgetPage';
 import TransactionPage from './containers/TransactionsPage/TransactionPage';
-
-
+import Landing from "./containers/LandingPage/landingPage";
 
 
 
@@ -26,7 +25,7 @@ export default class App extends Component {
       .then(response => {
         let ministriesObj = response.data;
         let ministriesList = Object.keys(ministriesObj)
-        this.setState({ ministries: ministriesList })
+        this.setState({ministries: ministriesList})
       })
       .catch(err => {
         console.log(err);
@@ -50,9 +49,10 @@ export default class App extends Component {
     return (
       <div className="App">
         <NavbarComp />
-        
+
         <Switch>
           <Route path='/' exact render={routerProps => (<Home {...routerProps} ministries={this.state.ministries} />)} />
+          <Route path="/land" render={Landing} />
           <Route path='/overview/:ministry' render={routerProps => (renderMinistryPage(routerProps))} />
           <Route path='/budget/:ministry' render={routerProps => (renderBudgetPage(routerProps))} />
           <Route path='/transactions/:ministry' render={routerProps => (renderTransactionsPage(routerProps))} />
@@ -60,7 +60,7 @@ export default class App extends Component {
       </div>
     )
   }
-} 
+}
 
 
 
