@@ -61,3 +61,23 @@
 .Slide {
     background-color: whi;
 }
+
+.CarouselDiv {
+  height: 100%;
+  /* background-color: white; */
+}
+
+.thumb{
+  width: 5rem !important;
+  transition: width 150ms ease-in-out !important;
+}
+
+.thumb:hover {
+  width: 9rem !important;
+}
+
+.thumb.selected {
+  width: 9rem !important;
+  border: none;
+  background-color: grey;
+}

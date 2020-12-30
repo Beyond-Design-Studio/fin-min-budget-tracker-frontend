@@ -5,11 +5,20 @@
   width: 100%;
   background-color: palegoldenrod;
   color:  inherit;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 7rem;
+  /* justify-content: center; */
 }
 
 .Title{
   padding-bottom: 5%;
+}
+
+.Links {
+  display: flex;
+  gap: 3rem;
 }
 
 .Link{
