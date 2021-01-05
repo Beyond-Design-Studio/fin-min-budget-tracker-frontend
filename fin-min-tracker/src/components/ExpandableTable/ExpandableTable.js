@@ -50,41 +50,28 @@ export default class ExpandableTable extends Component {
       const modalVisible = this.state.modalVisible
       return (
         <div className={styles.Container}>
-          {
-            modalVisible
+          {modalVisible
+            ? <>
+              <Modal tags={this.props.budget[this.state.rowClicked].tags} clicked={this.modalToggleHandler} minName={this.props.minName} categoryTitle={this.state.rowClicked} />
 
-              ? <>
-                <Modal tags={this.props.budget[this.state.rowClicked].tags} clicked={this.modalToggleHandler} minName={this.props.minName} categoryTitle={this.state.rowClicked} />
-                <div class="table-responsive ">
-                  <table class='table table-bordered'>
-                    <thead class='thead-dark'>
-                      <tr className={styles.Heading}>
-                        <th>Title</th>
-                        <th>Current Budget Amount</th>
-                        <th>Total Budget Amount</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {dynamicRows}
-                    </tbody>
-                  </table>
-                </div>}
-              </>
-              : <div class="table-responsive ">
-                <table class='table table-bordered'>
-                  <thead class='thead-dark'>
-                    <tr className={styles.Heading}>
-                      <th>Title</th>
-                      <th>Current Budget Amount</th>
-                      <th>Total Budget Amount</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {dynamicRows}
-                  </tbody>
-                </table>
-              </div>}
-        </div >
+            </>
+            :
+            <div class="table-responsive ">
+              <table class='table table-bordered'>
+                <thead class='thead-dark'>
+                  <tr className={styles.Heading}>
+                    <th>Title</th>
+                    <th>Current Budget Amount</th>
+                    <th>Total Budget Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {dynamicRows}
+                </tbody>
+              </table>
+            </div>}
+        </div>
+
 
       )
     }
