@@ -52,8 +52,8 @@ export default class ExpandableTable extends Component {
         <div className={styles.Container}>
           {modalVisible
             ? <>
-              <Modal tags={this.props.budget[this.state.rowClicked].tags} clicked={this.modalToggleHandler} minName={this.props.minName} categoryTitle={this.state.rowClicked} />
-
+              <Modal tags={this.props.budget[this.state.rowClicked].tags} clicked={this.modalToggleHandler}
+                minName={this.props.minName} categoryTitle={this.state.rowClicked} />
             </>
             :
             <div class="table-responsive ">
