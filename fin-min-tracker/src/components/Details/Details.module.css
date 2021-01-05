@@ -1,13 +1,48 @@
-.Details  {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  padding: 20px 10%
-}
-
 .Header {
   text-align: center;
   padding-top: 20px;
   margin-top: 0px;
+}
+
+.Details  {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 10%;
+  gap: 1rem;
+}
+
+.Dets {
+  text-align: center;
+}
+
+.MinHead {
+  font-size: 1.5rem;
+}
+
+
+@media only screen and (min-width: 768px) {
+  .Header {
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 0px;
+  }
+
+  .Details  {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    padding: 20px 10%;
+    gap: 1rem;
+  }
+
+  .Dets {
+    text-align: left;
+  }
+
+  .MinHead {
+    font-size: 1.5rem;
+  }
 }

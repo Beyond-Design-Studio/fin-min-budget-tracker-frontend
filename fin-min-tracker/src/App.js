@@ -26,6 +26,7 @@ export default class App extends Component {
         let ministriesObj = response.data;
         let ministriesList = Object.keys(ministriesObj)
         this.setState({ministries: ministriesList})
+        // console.log(this.state.ministries)
       })
       .catch(err => {
         console.log(err);

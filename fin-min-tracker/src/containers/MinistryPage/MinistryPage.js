@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import Details from '../../components/Details/Details'
 
 import PieChart from '../../components/PieChart/PieChart'
@@ -6,6 +6,7 @@ import BarChart from '../../components/BarChart/BarChart'
 import classes from './MinistryPage.module.css'
 import FirstlevelTable from '../../components/FirstLevelTable/FirstlevelTable'
 import SecondLevelTable from '../../components/SecondLevelTable/SecondLevelTable'
+import DonutSpinner from "../../components/DonutSpinner/donutSpinner";
 import axios from 'axios'
 import ReactLoading from 'react-loading'
 
@@ -24,7 +25,7 @@ export default class MinistryPage extends Component {
     let minName = this.props.minName
     const api = 'https://ashokafinanceministry.herokuapp.com/api/'
     const token = 'finmin00'
-    axios.get(api + minName, { headers: { "Authorization": `Bearer ${token}` } })
+    axios.get(api + minName, {headers: {"Authorization": `Bearer ${token}`}})
       .then(res => {
         this.setState({
           name: res.data.name,
@@ -40,7 +41,7 @@ export default class MinistryPage extends Component {
       let minName = this.props.minName
       const api = 'https://ashokafinanceministry.herokuapp.com/api/'
       const token = 'finmin00'
-      axios.get(api + minName, { headers: { "Authorization": `Bearer ${token}` } })
+      axios.get(api + minName, {headers: {"Authorization": `Bearer ${token}`}})
         .then(res => {
           this.setState({
             name: res.data.name,
@@ -68,7 +69,7 @@ export default class MinistryPage extends Component {
       )
     }
     else {
-      return <h2 style={{ textAlign: 'center' }}>Loading...</h2>
+      return <DonutSpinner></DonutSpinner>
     }
   }
 

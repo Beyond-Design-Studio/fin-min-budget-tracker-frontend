@@ -1,17 +1,22 @@
 import React from 'react'
 import classes from './Details.module.css'
+
+
+
 export default function Details(props) {
+
   return (
-    <>
+    <div>
       <div className={classes.Header}>
-        <h4>Details</h4>
+        <h2>Details</h2>
       </div>
       <div className={classes.Details}>
-        <p>Ministry Name: {props.name}</p>
-        <p>Minister: {props.ministerName}</p>
-        <p>Email: {props.email}</p>
+        <h3 className={classes.MinHead}>{props.name}</h3>
+        <div className={classes.Dets}>
+          <p><strong>Minister:</strong> {props.ministerName}</p>
+          <p><strong>Email:</strong> {props.email}</p>
+        </div>
       </div>
-    </>
-
+    </div>
   )
 }

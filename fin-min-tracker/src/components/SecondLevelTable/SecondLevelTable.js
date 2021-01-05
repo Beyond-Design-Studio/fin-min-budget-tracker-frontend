@@ -27,9 +27,9 @@ export default function FirstlevelTable(props) {
 
 
   return (
-    <>
+    <div>
       <h4 className={styles.Title}>Second Level Finances</h4>
-      <table  className={styles.Table}>
+      <table className={styles.Table}>
         <thead >
           <tr className={styles.Heading}>
             <th>Title</th>
@@ -43,7 +43,7 @@ export default function FirstlevelTable(props) {
         </tbody>
 
       </table>
-    </>
+    </div>
 
   )
 }

@@ -1,19 +1,23 @@
-.Card{
+.Card {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   height: 100vh;
   width: 100%;
-  background-color: palegoldenrod;
   color:  inherit;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 7rem;
-  /* justify-content: center; */
 }
 
 .Title{
   padding-bottom: 5%;
+  font-weight: 600;
+  color: black;
+  text-shadow: 2px 2px 2px #212529;
 }
 
 .Links {
@@ -21,6 +25,10 @@
   gap: 3rem;
 }
 
-.Link{
-  padding: 2% 0
+.Link {
+  padding: 2% 0;
+  color: black;
+  font-size: 20px;
+  font-weight: 400;
+  text-shadow: 2px 2px 2px #212529;
 }

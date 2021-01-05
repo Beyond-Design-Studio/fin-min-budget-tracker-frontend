@@ -1,52 +1,52 @@
 .App {
-    text-align: center;
-    margin: none;
-    /* background-color: #282c34; */
-    height: 100%;
+  text-align: center;
+  margin: none;
+  /* background-color: #282c34; */
+  height: 100%;
 }
 
 .Header {
-    background-color: #385794;
-    height: 90px;
+  background-color: #385794;
+  height: 90px;
 }
 
 .Header table{
-    padding: 30px;
+  padding: 30px;
 }
 
 .ministry{
-    width: 40%;
-    text-align: left;
-    font-size: 19px;
-    color: white;
+  width: 40%;
+  text-align: left;
+  font-size: 19px;
+  color: white;
 }
 
 .Name {
-    display: inline-block;
-    font-size: 27.5px;
-    color: white;
-    width: 255%;
-    text-align: center;
+  display: inline-block;
+  font-size: 27.5px;
+  color: white;
+  width: 255%;
+  text-align: center;
 }
 
 .Contact {
-    width: 220%;
-    font-size: 19px;
-    color: white;
-    text-align: right
+  width: 220%;
+  font-size: 19px;
+  color: white;
+  text-align: right
 }
 
 .Header td{
-    padding-right: 15px;
-    padding-left: 15px;
-    padding-top: 25px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 25px;
 }
 
 .landing {
-    padding: 20px;
-    font-size: 27.5px;
-    color: white;
-    text-align: center;
+  padding: 20px;
+  font-size: 27.5px;
+  color: white;
+  text-align: center;
 }
 
 /* .carousel .carousel-item>img {
@@ -56,15 +56,14 @@
 } */
 
 .main {
-    padding-bottom: 100px;
+  padding-bottom: 100px;
 }
 .Slide {
-    background-color: whi;
+  background-color: whi;
 }
 
 .CarouselDiv {
-  height: 100%;
-  /* background-color: white; */
+  min-height: 100vh;
 }
 
 .thumb{
@@ -81,3 +80,16 @@
   border: none;
   background-color: grey;
 }
+
+@media only screen and (min-width: 768px) {
+  .CarouselDiv {
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  .CarouselContain {
+    padding: 2rem 7rem;
+  }
+
+}
+

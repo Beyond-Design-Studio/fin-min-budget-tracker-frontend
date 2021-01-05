@@ -9,7 +9,7 @@ export default function FirstlevelTable(props) {
       // space before last upper in a sequence followed by lower
       .replace(/\b([A-Z]+)([A-Z])([a-z])/, '$1 $2$3')
       // uppercase the first character
-      .replace(/^./, function (str) { return str.toUpperCase(); })
+      .replace(/^./, function (str) {return str.toUpperCase();})
   }
   const financeArray = Object.keys(props.data);
   const data = props.data
@@ -23,7 +23,7 @@ export default function FirstlevelTable(props) {
 
 
   return (
-    <>
+    <div>
       <h4 className={styles.Title}>First Level Finances</h4>
       <table className={styles.Table}>
         <thead>
@@ -37,7 +37,7 @@ export default function FirstlevelTable(props) {
         </tbody>
 
       </table>
-    </>
+    </div>
 
   )
 }

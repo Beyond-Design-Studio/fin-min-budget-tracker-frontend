@@ -1,10 +1,10 @@
 .MinistryPage {
   background-color: #282c34;
   color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
 }
-
-
-
 
 .GraphsDiv {
   display: flex;
@@ -13,7 +13,15 @@
   padding: 20px 20px
 }
 
-@media(min-width: 1200px) {
+@media(min-width: 768px) {
+  .MinistryPage {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    min-height: 100vh;
+    padding: 1rem;
+  }
+
   .GraphsDiv {
     flex-direction: row;
     justify-content: space-evenly;

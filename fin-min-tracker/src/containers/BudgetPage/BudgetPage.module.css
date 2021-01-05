@@ -1,4 +1,13 @@
+.Container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  background-color: #fffbdb;
+}
+
 .Title {
- text-align: center;
- padding: 10px 0px;
+  text-align: center;
+  padding: 2rem;
 }

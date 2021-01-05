@@ -5,13 +5,11 @@ import MinistryCard from '../../components/MinistryCards/MinistryCards'
 import {Carousel} from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
-// import sky from '../../assets/sky.jpeg'
 
 import "./home.module.css"
 
 
 class home extends Component {
-
 
   render() {
     const customRenderThumb = (children) =>
@@ -20,16 +18,16 @@ class home extends Component {
       });
 
     const dynamicCards = this.props.ministries.map(ministry => {
-      return <MinistryCard style={{backgroundColor: "blue"}} name={ministry} />
+      return <MinistryCard name={ministry} />
     })
     return (
       <div className="CarouselDiv">
-        <Carousel renderThumbs={customRenderThumb} showStatus={false} showArrows={true}>
+        <div className="CarouselContain">
+          <Carousel renderThumbs={customRenderThumb} showStatus={false} showArrows={true}>
           {dynamicCards}
-        </Carousel>
+          </Carousel>
       </div>
-
-
+      </div>
     )
   }
 }
