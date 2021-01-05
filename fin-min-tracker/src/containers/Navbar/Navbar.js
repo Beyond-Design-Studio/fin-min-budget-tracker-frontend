@@ -14,6 +14,6 @@ export default function NavbarComponent() {
           </NavItem>
         </Nav>
       </Navbar.Collapse>
-    </Navbar>
+    </Navbar>  
   )
 }
