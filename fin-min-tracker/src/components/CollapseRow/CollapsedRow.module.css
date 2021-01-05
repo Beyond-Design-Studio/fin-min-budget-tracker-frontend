@@ -1,0 +1,27 @@
+@media (min-width: 800px) {
+  .SecondModalDropTab {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #463f3a;
+    padding: 1rem 0;
+    justify-content: space-around;
+  }
+
+  .SecondModalDropTab:last-child {
+    border: none;
+  }
+
+  .Title {
+    min-width: 10rem;
+    text-align: left;
+    padding-left: 1rem;
+  }
+
+  .Content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    min-width: 25rem;
+    gap: 3rem;
+  }
+}
