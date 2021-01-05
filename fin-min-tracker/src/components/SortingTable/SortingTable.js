@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 import { useTable, useSortBy, useExpanded } from 'react-table'
 import { format } from 'date-fns'
+import styles from './SortingTable.module.css'
 
 
 export default function SortingTable(props) {
@@ -71,7 +72,7 @@ export default function SortingTable(props) {
     []
   )
   return (
-    <table {...getTableProps()}>
+    <table className={styles.Table} {...getTableProps()}>
       <thead>
         {headerGroups.map((headerGroup) => (
 
@@ -86,9 +87,6 @@ export default function SortingTable(props) {
             ))}
           </tr>
 
-
-
-
         ))}
 
       </thead>
@@ -102,7 +100,6 @@ export default function SortingTable(props) {
                   {row.cells.map(cell => {
                     return (<td {...cell.getCellProps()}>{cell.render('Cell')}</td>)
                   })}
-
                 </tr>
                 {row.isExpanded ? (
                   <tr>
