@@ -47,7 +47,11 @@ export default class TransactionPage extends Component {
     // console.log(this.state.data, "Datacheck");
     if (this.state.ready) {
       return (
-        <SortingTable data={Object.values(this.state.data)} />
+        <div style={{ background: "#FFFBDB" }}>
+          <h3>Transactions Page</h3>
+          <SortingTable data={Object.values(this.state.data)} />
+        </div>
+
       )
     }
     else {
@@ -76,9 +80,6 @@ export default class TransactionPage extends Component {
     */
 
     // return (
-
-
-    // <SortingTable data={this.state.data} />
     // <div style={{background: "#FFFBDB"}}>
     //   <h3>Transactions Page</h3>
     //   <div class="col-auto">

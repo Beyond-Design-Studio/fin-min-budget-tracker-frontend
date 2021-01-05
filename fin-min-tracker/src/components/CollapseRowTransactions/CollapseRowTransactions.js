@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styles from "./CollapseRowTranscations.module.css";
 
 
@@ -33,7 +33,7 @@ const CollapseRowTranscations = (props) => {
   return (
     props.transaction &&
     <tbody>
-      <tr key={props.index} onClick={() => setToggle(!toggle)} className={props.transaction.type === "spendings" ? "table-danger" : "table-success"}>
+      <tr key={props.index} onClick={() => setToggle(!toggle)} >
         <td> {props.transaction.date} </td>
         <td> {props.transaction.type === "spendings" ? "Spending" : "Earning"} </td>
         <td> {props.transaction.tags} </td>
