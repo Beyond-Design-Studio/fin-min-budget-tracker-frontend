@@ -1,13 +1,20 @@
-.Details  {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  padding: 20px 10%
+.Header {
+    padding: 0.5em 0em
 }
 
-.Header {
-  text-align: center;
-  padding-top: 20px;
-  margin-top: 0px;
+
+@media (min-width: 800px) {
+  .Details  {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 10%
+  }
+  
+  .Header {
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 0px;
+  }
 }
