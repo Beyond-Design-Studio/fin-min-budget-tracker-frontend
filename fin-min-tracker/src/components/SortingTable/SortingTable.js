@@ -72,49 +72,53 @@ export default function SortingTable(props) {
     []
   )
   return (
-    <table className={styles.Table} {...getTableProps()}>
-      <thead>
-        {headerGroups.map((headerGroup) => (
+    <div style={{ overflowX: 'auto' }}>
 
-          <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map((column) => (
-              <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                {column.render('Header')}
-                <span>
-                  {column.isSorted ? (column.isSortedDesc ? '↓' : '↑') : ''}
-                </span>
-              </th>
-            ))}
-          </tr>
 
-        ))}
+      <table className={styles.Table} {...getTableProps()}>
+        <thead className="table-dark">
+          {headerGroups.map((headerGroup) => (
 
-      </thead>
-      <tbody {...getTableBodyProps()}>
-        {
-          rows.map(row => {
-            prepareRow(row)
-            return (
-              <>
-                <tr {...row.getRowProps()}>
-                  {row.cells.map(cell => {
-                    return (<td {...cell.getCellProps()}>{cell.render('Cell')}</td>)
-                  })}
-                </tr>
-                {row.isExpanded ? (
-                  <tr>
-                    <td colSpan={visibleColumns.length}>
-                      {renderRowSubComponent({ row })}
-                    </td>
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map((column) => (
+                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                  {column.render('Header')}
+                  <span>
+                    {column.isSorted ? (column.isSortedDesc ? '↓' : '↑') : ''}
+                  </span>
+                </th>
+              ))}
+            </tr>
+
+          ))}
+
+        </thead>
+        <tbody {...getTableBodyProps()}>
+          {
+            rows.map((row, index) => {
+              prepareRow(row)
+              return (
+                <>
+                  <tr {...row.getRowProps()} className={props.data[index].type === "spendings" ? "table-danger" : "table-success"}>
+                    {row.cells.map(cell => {
+                      return (<td {...cell.getCellProps()}>{cell.render('Cell')}</td>)
+                    })}
                   </tr>
-                ) : null}
-              </>
+                  {row.isExpanded ? (
+                    <tr>
+                      <td colSpan={visibleColumns.length}>
+                        {renderRowSubComponent({ row })}
+                      </td>
+                    </tr>
+                  ) : null}
+                </>
 
-            )
-          })
-        }
+              )
+            })
+          }
 
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
   )
 }
