@@ -59,20 +59,22 @@ export default function SortingTable(props) {
     visibleColumns,
     state: { expanded } } = tableInstance
   const renderRowSubComponent = React.useCallback(
-    ({ row }) => (
-      <pre
-        style={{
-          fontSize: '10px',
-        }}
-      >
-        <code>{JSON.stringify({ values: row.values }, null, 2)}</code>
-      </pre>
-    ),
+    ({ row }) => {
+      return (
+        <pre
+          style={{
+            fontSize: '10px',
+          }}
+        >
+          <code>{JSON.stringify({ values: row.values }, null, 2)}</code>
+        </pre>
+      )
+    },
     []
   )
   return (
-    <table {...getTableProps()}>
-      <thead>
+    <table {...getTableProps()} className="table-hover Table">
+      <thead className="table-dark">
         {headerGroups.map((headerGroup) => (
 
           <tr {...headerGroup.getHeaderGroupProps()}>
@@ -98,7 +100,7 @@ export default function SortingTable(props) {
             prepareRow(row)
             return (
               <>
-                <tr {...row.getRowProps()}>
+                <tr {...row.getRowProps()} >
                   {row.cells.map(cell => {
                     return (<td {...cell.getCellProps()}>{cell.render('Cell')}</td>)
                   })}

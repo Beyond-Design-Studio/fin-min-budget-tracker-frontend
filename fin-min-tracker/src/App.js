@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Route, Switch} from "react-router-dom";
+import React, { Component } from 'react';
+import { Route, Switch } from "react-router-dom";
 import NavbarComp from './containers/Navbar/Navbar'
 import './App.css';
 import './containers/Home/home.css'
@@ -25,7 +25,7 @@ export default class App extends Component {
       .then(response => {
         let ministriesObj = response.data;
         let ministriesList = Object.keys(ministriesObj)
-        this.setState({ministries: ministriesList})
+        this.setState({ ministries: ministriesList })
       })
       .catch(err => {
         console.log(err);
@@ -49,7 +49,6 @@ export default class App extends Component {
     return (
       <div className="App">
         <NavbarComp />
-
         <Switch>
           <Route path='/' exact render={routerProps => (<Home {...routerProps} ministries={this.state.ministries} />)} />
           <Route path="/land" render={Landing} />
