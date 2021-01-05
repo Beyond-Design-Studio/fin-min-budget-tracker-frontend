@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {Redirect} from "react-router-dom";
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
 
@@ -28,12 +29,14 @@ const uiConfig = {
         firebase.auth.GoogleAuthProvider.PROVIDER_ID
     ],
     callbacks: {
-        // Avoid redirects after sign-in.
-        signInSuccessWithAuthResult: () => false,
+        //  redirects after sign-in.
+        signInSuccessWithAuthResult: () => true
     },
+    signInSuccessUrl: '/home',
+
 };
 
-function SignInScreen() {
+function SignInScreen(props) {
     const [isSignedIn, setIsSignedIn] = useState(false); // Local signed-in state.
 
     // Listen to the Firebase Auth state and set the local state.
@@ -45,18 +48,21 @@ function SignInScreen() {
     }, []);
 
     if (!isSignedIn) {
+        props.setSignedIn(false);
         return (
             <div>
                 <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
             </div>
         );
-    }     
-    return (
-        <div>
-            <p>Welcome {firebase.auth().currentUser.displayName}! You are now signed-in!</p>
-            <a onClick={() => firebase.auth().signOut()}>Sign-out</a>
-        </div>
-    );
+    } else { 
+        props.setSignedIn(true);
+        return (
+            <div>
+                <p>Welcome {firebase.auth().currentUser.displayName}</p>
+                <a onClick={() => firebase.auth().signOut()}>Sign-out</a>
+            </div>
+        );
+    }
 }
 
 export default SignInScreen;

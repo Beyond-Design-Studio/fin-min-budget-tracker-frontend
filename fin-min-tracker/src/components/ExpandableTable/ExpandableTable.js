@@ -68,7 +68,7 @@ export default class ExpandableTable extends Component {
                       {dynamicRows}
                     </tbody>
                   </table>
-                </div>}
+                </div>
               </>
               : <div class="table-responsive ">
                 <table class='table table-bordered'>
