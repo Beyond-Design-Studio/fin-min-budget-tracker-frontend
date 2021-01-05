@@ -1,7 +1,8 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import axios from 'axios'
 import './transactionPage.module.css'
 import CollapseRowTranscations from "../../components/CollapseRowTransactions/CollapseRowTransactions";
+import SortingTable from '../../components/SortingTable/SortingTable';
 
 
 export default class TransactionPage extends Component {
@@ -15,7 +16,7 @@ export default class TransactionPage extends Component {
     let minName = this.props.minName
     const api = 'https://ashokafinanceministry.herokuapp.com/api/'
     const token = 'finmin00'
-    axios.get(api + minName + '/transactions', {headers: {"Authorization": `Bearer ${token}`}})
+    axios.get(api + minName + '/transactions', { headers: { "Authorization": `Bearer ${token}` } })
       .then(res => {
         console.log('mount', res.data);
         this.setState({
@@ -30,9 +31,9 @@ export default class TransactionPage extends Component {
       let minName = this.props.minName
       const api = 'https://ashokafinanceministry.herokuapp.com/api/'
       const token = 'finmin00'
-      axios.get(api + minName + '/transactions', {headers: {"Authorization": `Bearer ${token}`}})
+      axios.get(api + minName + '/transactions', { headers: { "Authorization": `Bearer ${token}` } })
         .then(res => {
-          //  console.log('transactions', res.data);
+          console.log('transactions', res.data);
           this.setState({
             ready: true,
             data: res.data
@@ -43,6 +44,16 @@ export default class TransactionPage extends Component {
   }
 
   render() {
+    // console.log(this.state.data, "Datacheck");
+    if (this.state.ready) {
+      return (
+        <SortingTable data={Object.values(this.state.data)} />
+      )
+    }
+    else {
+      return <h2 style={{ textAlign: 'center' }}>Transactions Loading...</h2>
+    }
+
     /*
       * Render the transaction table, I'm using bootstrap
       * Data in this.state.data, extract all rows (individual transactions)
@@ -64,34 +75,37 @@ export default class TransactionPage extends Component {
       * Number of table heads (<th>) = number of columns
     */
 
-    return (
-      <div style={{background: "#FFFBDB"}}>
-        <h3>Transactions Page</h3>
-        <div class="col-auto">
-          <table className="table-hover Table">
-            <thead className="table-dark">
-              <tr>
-                <th>Date</th>
-                <th>Type of Transaction</th>
-                <th>Details</th>
-                <th>Category</th>
-                <th>Amount</th>
-                <th>Status</th>
-              </tr>
-            </thead>
+    // return (
 
-            {
-              // console.log(Object.values(this.state.data ? Object.values(this.state.data) : []))
-              (this.state.data ? Object.values(this.state.data) : []).map((item, index) => {
-                return (
-                  <CollapseRowTranscations index={index} transaction={item}></CollapseRowTranscations>
-                )
-              })
-            }
 
-          </table>
-        </div>
-      </div>
-    )
+    // <SortingTable data={this.state.data} />
+    // <div style={{background: "#FFFBDB"}}>
+    //   <h3>Transactions Page</h3>
+    //   <div class="col-auto">
+    //     <table className="table-hover Table">
+    //       <thead className="table-dark">
+    //         <tr>
+    //           <th>Date</th>
+    //           <th>Type of Transaction</th>
+    //           <th>Details</th>
+    //           <th>Category</th>
+    //           <th>Amount</th>
+    //           <th>Status</th>
+    //         </tr>
+    //       </thead>
+
+    //       { 
+    //         // console.log(Object.values(this.state.data ? Object.values(this.state.data) : []))
+    //         (this.state.data ? Object.values(this.state.data) : []).map((item, index) => {
+    //           return (
+    //             <CollapseRowTranscations index={index} transaction={item}></CollapseRowTranscations>
+    //           )
+    //         })
+    //       }
+
+    //     </table>
+    //   </div>
+    // </div>
+    // )
   }
 }
