@@ -1,31 +1,62 @@
 .landing-container {
   display: flex;
   justify-content: center;
-  min-height: 83vh;
   align-items: center;
+  min-height: 83vh;
 }
 
 .landing {
   background-color: #282c34;
-  width: 30rem;
-  height: 35rem;
-  padding-left: 5rem;
+  border-radius: 015px 15px 15px 015px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
 }
 
-.right {
-  border-radius: 0 15px 15px 0;
-}
+ @media only screen and (min-width: 768px) {
+  .landing-container {
+    display: flex;
+    justify-content: center;
+    min-height: 83vh;
+    align-items: center;
+  }
+
+  .landing {
+    background-color: #282c34;
+    width: 30rem;
+    height: 35rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+  }
+
+  .right-title {
+    font-weight: bolder;
+  }
+
+  .right {
+    border-radius: 0 15px 15px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+  }
 
 
-.left {
-  border-radius: 15px 0 0 15px;
-  background-image: url(https://picsum.photos/600);
-}
+  .left {
+    border-radius: 15px 0 0 15px;
+    background-image: url(../../assets/sg_logo.png);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #385794;
+  }
 
-.right-form {
-  width: 85%;
+  .right-form {
+    width: 85%;
+  }
 }

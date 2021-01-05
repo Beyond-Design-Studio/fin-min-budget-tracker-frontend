@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-import './transactionPage.module.css'
 import CollapseRowTranscations from "../../components/CollapseRowTransactions/CollapseRowTransactions";
+
+import "./transactionPage.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css"
 
 
 export default class TransactionPage extends Component {
@@ -65,32 +67,31 @@ export default class TransactionPage extends Component {
     */
 
     return (
-      <div style={{background: "#FFFBDB"}}>
-        <h3>Transactions Page</h3>
-        <div class="col-auto">
-          <table className="table-hover Table">
-            <thead className="table-dark">
-              <tr>
-                <th>Date</th>
-                <th>Type of Transaction</th>
-                <th>Details</th>
-                <th>Category</th>
-                <th>Amount</th>
-                <th>Status</th>
-              </tr>
-            </thead>
+      <div className="transaction-container">
+        <h3 className="transaction-heading">Transactions</h3>
 
-            {
-              // console.log(Object.values(this.state.data ? Object.values(this.state.data) : []))
-              (this.state.data ? Object.values(this.state.data) : []).map((item, index) => {
-                return (
-                  <CollapseRowTranscations index={index} transaction={item}></CollapseRowTranscations>
-                )
-              })
-            }
+        <table className="table-hover transaction-table">
+          <thead className="table-dark">
+            <tr>
+              <th>Date</th>
+              <th>Type of Transaction</th>
+              <th>Details</th>
+              <th>Category</th>
+              <th>Amount</th>
+              <th>Status</th>
+            </tr>
+          </thead>
 
-          </table>
-        </div>
+          {
+            // console.log(Object.values(this.state.data ? Object.values(this.state.data) : []))
+            (this.state.data ? Object.values(this.state.data) : []).map((item, index) => {
+              return (
+                <CollapseRowTranscations index={index} transaction={item}></CollapseRowTranscations>
+              )
+            })
+          }
+
+        </table>
       </div>
     )
   }

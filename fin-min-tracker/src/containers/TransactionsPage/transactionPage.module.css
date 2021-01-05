@@ -1,20 +1,25 @@
-.Table {
-    width: 100%;
-    margin: 0px auto;
-    overflow-x: scroll;
-    float: none;
-    border-color: #463F3A;
-  }
-  .Heading h3{
-    background-color: #FFFBDB;
-    position: fixed;
-    padding-bottom: 500%;
-  }
-  .Title {
-    text-align: center;
-    padding: 15px 0px
-  }
-  th, td {
-    text-align: center;
-    border: #463F3A solid 1px !important;
-  }
+/* .Table { */
+  /* width: 100%; */
+  /* margin: 0px auto; */
+  /* overflow-x: scroll; */
+  /* float: none; */
+  /* border-color: #463F3A; */
+/* } */
+
+
+/* th, td { */
+  /* text-align: center; */
+  /* border: #463F3A solid 1px !important; */
+/* } */
+
+.Container {
+  background-color: #fffbdb;
+  min-width: 100vh;
+}
+
+@media only screen and (min-width: 768px) {
+  .Container {
+    background-color: #fffbdb;
+    min-width: 100vh;
+  } 
+}

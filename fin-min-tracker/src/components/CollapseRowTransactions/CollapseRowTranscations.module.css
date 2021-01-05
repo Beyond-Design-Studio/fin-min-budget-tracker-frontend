@@ -20,7 +20,7 @@
   .Content {
     display: flex;
     align-items: flex-start;
-    justify-content: space-around;
+    justify-content: space-between;
     min-width: 25rem;
     gap: 3rem;
   }

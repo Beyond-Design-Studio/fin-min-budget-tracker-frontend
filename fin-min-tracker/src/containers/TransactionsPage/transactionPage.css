@@ -1,0 +1,39 @@
+/* .Table { */
+  /* width: 100%; */
+  /* margin: 0px auto; */
+  /* overflow-x: scroll; */
+  /* float: none; */
+  /* border-color: #463F3A; */
+/* } */
+
+
+/* th, td { */
+  /* text-align: center; */
+  /* border: #463F3A solid 1px !important; */
+/* } */
+
+@media only screen and (min-width: 768px) {
+  
+  .transaction-container {
+    background-color: #fffbdb;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-color: #463F3A;
+  }
+
+  th, td {
+    text-align: center;
+    border: #463F3A solid 1px !important;
+  }
+
+  .transaction-heading {
+    padding: 2rem;
+  }
+
+  .transaction-table {
+    width: 90%;
+  }
+
+}
