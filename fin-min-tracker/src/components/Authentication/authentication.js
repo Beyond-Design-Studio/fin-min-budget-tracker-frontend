@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import {Redirect} from "react-router-dom";
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
 
@@ -48,18 +47,16 @@ function SignInScreen(props) {
     }, []);
 
     if (!isSignedIn) {
-        props.setSignedIn(false);
         return (
             <div>
                 <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
             </div>
         );
     } else { 
-        props.setSignedIn(true);
         return (
             <div>
                 <p>Welcome {firebase.auth().currentUser.displayName}</p>
-                <a onClick={() => firebase.auth().signOut()}>Sign-out</a>
+                <button onClick={() => firebase.auth().signOut()}>Sign-out</button>
             </div>
         );
     }

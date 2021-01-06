@@ -2,9 +2,11 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import './transactionPage.module.css'
 import CollapseRowTranscations from "../../components/CollapseRowTransactions/CollapseRowTransactions";
+import {withRouter } from "react-router-dom";
+import firebase from 'firebase/app';
 
 
-export default class TransactionPage extends Component {
+class TransactionPage extends Component {
   state = {
     ready: false,
     pages: 0,
@@ -23,6 +25,12 @@ export default class TransactionPage extends Component {
           data: res.data
         })
       })
+      firebase.auth().onAuthStateChanged(user => {
+        if (user === null) {
+          console.log(firebase.auth().currentUser);
+          this.props.history.push('/');
+        }
+      });
   }
 
   componentDidUpdate() {
@@ -39,7 +47,13 @@ export default class TransactionPage extends Component {
           })
         }
         )
-    }
+    
+        firebase.auth().onAuthStateChanged(user => {
+          if (user === null) {
+            console.log(firebase.auth().currentUser);
+            this.props.history.push('/');
+          }
+        });  }
   }
 
   render() {
@@ -95,3 +109,5 @@ export default class TransactionPage extends Component {
     )
   }
 }
+
+export default withRouter(TransactionPage)
