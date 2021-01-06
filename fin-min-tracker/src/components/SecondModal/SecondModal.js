@@ -1,8 +1,9 @@
-import React, { Component, useEffect, useState } from 'react'
+import React, {Component, useEffect, useState} from 'react'
 import styles from './SecondModal.module.css'
 import Backdrop from '../../containers/Backdrop/Backdrop'
 import Axios from 'axios'
 import CollapseRow from "../CollapseRow/CollapsedRow"
+import DonutSpinner from "../DonutSpinner/donutSpinner";
 
 
 export default function Modal(props) {
@@ -17,7 +18,7 @@ export default function Modal(props) {
     const tagTitle = props.tag
 
     let config = {
-      headers: { "Authorization": `Bearer ${token}` },
+      headers: {"Authorization": `Bearer ${token}`},
       params: {
         category: categoryTitle,
         tags: tagTitle
@@ -43,7 +44,7 @@ export default function Modal(props) {
   return (
     <div className={styles.Modal}>
       {data &&
-        <div className="table-responsive" style={{ "maxHeight": "622px" }}>
+        <div className="table-responsive" style={{"maxHeight": "622px"}}>
           <table className="table table-borderless">
             <thead className='thead-dark'>
               <tr >
@@ -61,9 +62,9 @@ export default function Modal(props) {
 
       {!data &&
         <div>
-          <div className="Modal" style={{ "maxHeight": "100px" }}>
-            Nothing to show here
-        </div>
+          <div className="Modal" style={{"maxHeight": "100px"}}>
+            <div className="donut"></div>
+          </div>
           <Backdrop clicked={props.clicked} />
         </div>
       }

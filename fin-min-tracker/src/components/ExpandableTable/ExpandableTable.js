@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import styles from './ExpandableTable.module.css'
 import Modal from '../../containers/Modal/Modal'
+import DonutSpinner from "../DonutSpinner/donutSpinner";
 
 export default class ExpandableTable extends Component {
   state = {
@@ -47,10 +48,10 @@ export default class ExpandableTable extends Component {
         }
 
       })
-      const modalVisible = this.state.modalVisible
+      // const modalVisible = this.state.modalVisible
       return (
         <div className={styles.Container}>
-          {modalVisible
+          {this.state.modalVisible
             ? <>
               <Modal tags={this.props.budget[this.state.rowClicked].tags} clicked={this.modalToggleHandler}
                 minName={this.props.minName} categoryTitle={this.state.rowClicked} />
@@ -76,7 +77,7 @@ export default class ExpandableTable extends Component {
       )
     }
     else {
-      return <h3>Loading...</h3>
+      return <DonutSpinner></DonutSpinner>;
     }
 
   }

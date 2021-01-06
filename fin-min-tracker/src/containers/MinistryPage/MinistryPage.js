@@ -8,7 +8,6 @@ import FirstlevelTable from '../../components/FirstLevelTable/FirstlevelTable'
 import SecondLevelTable from '../../components/SecondLevelTable/SecondLevelTable'
 import DonutSpinner from "../../components/DonutSpinner/donutSpinner";
 import axios from 'axios'
-import ReactLoading from 'react-loading'
 
 export default class MinistryPage extends Component {
   state = {

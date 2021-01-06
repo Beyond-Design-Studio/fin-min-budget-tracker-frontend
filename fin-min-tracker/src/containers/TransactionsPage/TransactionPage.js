@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-import CollapseRowTranscations from "../../components/CollapseRowTransactions/CollapseRowTransactions";
 // import './transactionPage.module.css'
 import SortingTable from '../../components/SortingTable/SortingTable';
+import DonutSpinner from "../../components/DonutSpinner/donutSpinner";
 
 import "./transactionPage.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css"
@@ -50,15 +50,15 @@ export default class TransactionPage extends Component {
     // console.log(this.state.data, "Datacheck");
     if (this.state.ready) {
       return (
-        <div >
-          <h3>Transactions Page</h3>
+        <div className="transaction-container">
+          <h3 className="transaction-heading">Transactions Page</h3>
           <SortingTable data={Object.values(this.state.data)} />
         </div>
 
       )
     }
     else {
-      return <h2 style={{textAlign: 'center'}}>Transactions Loading...</h2>
+      return <DonutSpinner></DonutSpinner>
     }
 
     /*
