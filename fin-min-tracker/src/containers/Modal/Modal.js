@@ -6,12 +6,9 @@ export default class Modal extends Component {
   render() {
     return (
       <div>
-
         <div className={styles.Modal}>
           <SecondBudgetTable tags={this.props.tags} minName={this.props.minName} categoryTitle={this.props.categoryTitle} />
-
         </div>
-
         <Backdrop clicked={this.props.clicked} />
       </div>
 

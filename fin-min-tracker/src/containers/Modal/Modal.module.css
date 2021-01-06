@@ -6,18 +6,14 @@
   border: 1px solid #ccc;
   box-shadow: 1px 1px 1px black;
   padding: 16px;
-  top: 0%;
-  /* overflow: scroll; */
+  top: 12%;
+  overflow: scroll;
   box-sizing: border-box;
   border-color: blue;
 }
 
 
-.Table{
-  width: 90%;
-  margin: auto;
-  overflow: scroll;
-}
+
 
 @media (min-width: 800px) {
   .Modal {

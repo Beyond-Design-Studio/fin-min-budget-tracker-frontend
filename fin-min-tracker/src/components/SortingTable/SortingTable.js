@@ -2,6 +2,8 @@ import React, {useMemo} from 'react'
 import {useTable, useSortBy, useExpanded} from 'react-table'
 import {format} from 'date-fns'
 import CollapseRowTranscations from "../../components/CollapseRowTransactions/CollapseRowTransactions";
+import styles from './SortingTable.module.css'
+
 
 export default function SortingTable(props) {
   const Columns = useMemo(() => [
@@ -67,46 +69,53 @@ export default function SortingTable(props) {
     []
   )
   return (
-    <table {...getTableProps()} className="table-hover Table">
-      <thead className="table-dark">
-        {headerGroups.map((headerGroup) => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map((column) => (
-              <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                {column.render('Header')}
-                <span>
-                  {column.isSorted ? (column.isSortedDesc ? '↓' : '↑') : ''}
-                </span>
-              </th>
-            ))}
-          </tr>
-        ))}
-      </thead>
-      <tbody {...getTableBodyProps()}>
-        {rows.map((row, index) => {
-          prepareRow(row)
-          return (
-            <>
-              <tr {...row.getRowProps()} className={props.data[index].type === "spendings" ? "table-danger" : "table-success"}>
-                {row.cells.map(cell => {
-                  return (<td {...cell.getCellProps()}>{cell.render('Cell')}</td>)
-                })}
+    <div style={{ overflowX: 'auto' }}>
 
-              </tr>
-              {row.isExpanded ? (
-                <tr>
-                  <td colSpan={visibleColumns.length}>
-                    {renderRowSubComponent({row})}
-                  </td>
-                </tr>
-              ) : null}
-            </>
 
-          )
-        })
-        }
+      <table className={styles.Table} {...getTableProps()}>
+        <thead className="table-dark">
+          {headerGroups.map((headerGroup) => (
 
-      </tbody>
-    </table>
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map((column) => (
+                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                  {column.render('Header')}
+                  <span>
+                    {column.isSorted ? (column.isSortedDesc ? '↓' : '↑') : ''}
+                  </span>
+                </th>
+              ))}
+            </tr>
+
+          ))}
+
+        </thead>
+        <tbody {...getTableBodyProps()}>
+          {
+            rows.map((row, index) => {
+              prepareRow(row)
+              return (
+                <>
+                  <tr {...row.getRowProps()} className={props.data[index].type === "spendings" ? "table-danger" : "table-success"}>
+                    {row.cells.map(cell => {
+                      return (<td {...cell.getCellProps()}>{cell.render('Cell')}</td>)
+                    })}
+                  </tr>
+                  {row.isExpanded ? (
+                    <tr>
+                      <td colSpan={visibleColumns.length}>
+                        {renderRowSubComponent({ row })}
+                      </td>
+                    </tr>
+                  ) : null}
+                </>
+
+              )
+            })
+          }
+
+        </tbody>
+      </table>
+    </div>
   )
 }

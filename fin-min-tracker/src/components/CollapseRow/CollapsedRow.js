@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styles from "./CollapsedRow.module.css";
 
 
@@ -21,7 +21,7 @@ const CollapseRow = (props) => {
   console.log("qwertyuqwertyui", props)
   return (
     <tbody>
-      <tr style={{cursor: "pointer"}} className="collapse-head" onClick={() => setToggleClick(!toggleClick)}>
+      <tr style={{ cursor: "pointer" }} className="collapse-head" onClick={() => setToggleClick(!toggleClick)}>
         <td>{toggleClick ? "▼" : "▶"}</td>
         <td>{props.dataVal ? props.dataVal.tags : data.tags}</td>
         <td>{props.dataVal ? props.dataVal.total : data.total}</td>
