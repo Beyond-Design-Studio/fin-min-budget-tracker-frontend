@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import styles from './ExpandableTable.module.css'
 import Modal from '../../containers/Modal/Modal'
 
@@ -10,7 +10,7 @@ export default class ExpandableTable extends Component {
   }
 
   rowClickedHandler = (title) => {
-    this.setState({ rowClicked: title })
+    this.setState({rowClicked: title})
     this.modalToggleHandler()
   }
   modalToggleHandler = () => {
@@ -68,7 +68,7 @@ export default class ExpandableTable extends Component {
                       {dynamicRows}
                     </tbody>
                   </table>
-                </div>}
+                </div>
               </>
               : <div class="table-responsive ">
                 <table class='table table-bordered'>
