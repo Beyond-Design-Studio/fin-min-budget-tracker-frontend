@@ -3,9 +3,6 @@ import SignInScreen from '../../components/Authentication/authentication'
 import "./landingPage.css";
 
 const Landing = (props) => {
-  const setSignedIn = (isSignedIn) => {
-    props.setSignedIn(isSignedIn);
-  }
   return (
     <div className="landing-container">
       <div className="landing left"></div>
@@ -15,7 +12,7 @@ const Landing = (props) => {
           <form className="col s12">
             <div className="row">
               <div class="input-field col s12">
-              <SignInScreen setSignedIn={setSignedIn}/>
+              <SignInScreen/>
               </div>
             </div>
           </form>

@@ -4,8 +4,6 @@ import NavbarComp from './containers/Navbar/Navbar'
 import './App.css';
 import './containers/Home/home.css'
 import axios from 'axios';
-import firebase from 'firebase';
-
 
 import Home from './containers/Home/home';
 import MinistryPage from './containers/MinistryPage/MinistryPage';
@@ -14,10 +12,15 @@ import TransactionPage from './containers/TransactionsPage/TransactionPage';
 import Landing from "./containers/LandingPage/landingPage";
 import { useScrollTrigger } from '@material-ui/core';
 
+const ErrorPage = (props) => {
+  props.history.push('/');
+  return (
+    <Landing/>
+  )
+}
+
 const App = () => {
   const [ministries, setMinistries] = useState([]);
-  const[isSignedIn, setSignIn] = useState(false);
-
   // Getting Ministries' data from the backend: 
   useEffect(() => {
     const fetchMinistries = async () => {
@@ -49,20 +52,17 @@ const App = () => {
     return (<TransactionPage minName={ministry} />)
   }
 
-  const setSignedIn = (signedIn) => {
-    setSignIn(signedIn);
-    // console.log(isSignedIn);
-  }
 
   return (
     <div className="App"> 
       <NavbarComp />
       <Switch>
-        <Route path='/' exact render={() => <Landing setSignedIn={setSignedIn}/>} />
-        <Route path='/home' render={(routerProps) => <Home {...routerProps} ministries={ministries} isSignedIn={isSignedIn}/>} />
+        <Route path='/' exact render={() => <Landing/>} />
+        <Route path='/home' render={(routerProps) => <Home {...routerProps} ministries={ministries}/>} />
         <Route path='/overview/:ministry' render={routerProps => (renderMinistryPage(routerProps))} />
         <Route path='/budget/:ministry' render={routerProps => (renderBudgetPage(routerProps))} />
         <Route path='/transactions/:ministry' render={routerProps => (renderTransactionsPage(routerProps))} />
+        <Route path='*' component={ErrorPage}/>
       </Switch>
     </div>
   )
