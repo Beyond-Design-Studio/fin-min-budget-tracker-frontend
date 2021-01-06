@@ -1,6 +1,6 @@
-import React, {useMemo} from 'react'
-import {useTable, useSortBy, useExpanded} from 'react-table'
-import {format} from 'date-fns'
+import React, { useMemo } from 'react'
+import { useTable, useSortBy, useExpanded } from 'react-table'
+import { format } from 'date-fns'
 import CollapseRowTranscations from "../../components/CollapseRowTransactions/CollapseRowTransactions";
 import styles from './SortingTable.module.css'
 
@@ -11,7 +11,7 @@ export default function SortingTable(props) {
       // Make an expander cell
       Header: () => null, // No header
       id: 'expander', // It needs an ID
-      Cell: ({row}) => (
+      Cell: ({ row }) => (
         // Use Cell to render an expander for each row.
         // We can use the getToggleRowExpandedProps prop-getter
         // to build the expander.
@@ -23,7 +23,7 @@ export default function SortingTable(props) {
     {
       Header: 'Date',
       accessor: 'date',
-      Cell: ({value}) => {return format(new Date(value), 'dd/MM/yyyy')}
+      Cell: ({ value }) => { return format(new Date(value), 'dd/MM/yyyy') }
     },
     {
       Header: 'Type',
@@ -59,11 +59,11 @@ export default function SortingTable(props) {
     rows,
     prepareRow,
     visibleColumns,
-    state: {expanded}} = tableInstance
+    state: { expanded } } = tableInstance
   const renderRowSubComponent = React.useCallback(
-    ({row}) => {
+    ({ row, index }) => {
       return (
-        <CollapseRowTranscations transaction={row.values}></CollapseRowTranscations>
+        <CollapseRowTranscations transaction={props.data[index]}></CollapseRowTranscations>
       )
     },
     []
@@ -104,7 +104,7 @@ export default function SortingTable(props) {
                   {row.isExpanded ? (
                     <tr>
                       <td colSpan={visibleColumns.length}>
-                        {renderRowSubComponent({ row })}
+                        {renderRowSubComponent({ row, index })}
                       </td>
                     </tr>
                   ) : null}

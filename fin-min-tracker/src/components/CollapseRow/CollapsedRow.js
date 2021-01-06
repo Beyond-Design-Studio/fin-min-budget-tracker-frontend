@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./CollapsedRow.module.css";
+import { format } from 'date-fns'
 
 
 const data = {
@@ -42,7 +43,7 @@ const CollapseRow = (props) => {
                     <h5>Details</h5>
                     <p>{props.dataVal ? props.dataVal.details : data.details}</p>
                     <h5>Date</h5>
-                    <p>{props.dataVal ? props.dataVal.date : data.date}</p>
+                    <p>{props.dataVal ? format(new Date(props.dataVal.date), 'dd/MM/yyyy') : data.date}</p>
                   </div>
                   <div className="right-side">
                     <h5>Description</h5>
@@ -66,7 +67,7 @@ const CollapseRow = (props) => {
                   </div>
                   <div className="mid-side-right">
                     <h5>Added At</h5>
-                    <p>{props.dataVal ? props.dataVal.addedAt : data.addedAt}</p>
+                    <p>{props.dataVal ? format(new Date(props.dataVal.addedAt), 'dd/MM/yyyy') : data.addedAt}</p>
                   </div>
                   <div className="right-side">
                     <h5>Category</h5>

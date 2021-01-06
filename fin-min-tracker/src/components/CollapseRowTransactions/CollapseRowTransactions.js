@@ -1,5 +1,6 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styles from "./CollapseRowTranscations.module.css";
+import { format } from 'date-fns'
 
 
 const data = {
@@ -39,8 +40,8 @@ const CollapseRowTranscations = (props) => {
           <div className="mid-side">
             <h5>Details</h5>
             <p>{props.transaction ? props.transaction.details : data.details}</p>
-            <h5>date</h5>
-            <p>{props.transaction ? props.transaction.date : data.date}</p>
+            <h5>Date</h5>
+            <p>{props.transaction ? format(new Date(props.transaction.date), 'dd/MM/yyyy') : data.date}</p>
           </div>
           <div className="right-side">
             <h5>Description</h5>
@@ -65,7 +66,7 @@ const CollapseRowTranscations = (props) => {
           </div>
           <div className="mid-side-right">
             <h5>Added at</h5>
-            <p>{props.transaction ? props.transaction.addedAt : data.addedAt}</p>
+            <p>{props.transaction ? format(new Date(props.transaction.addedAt), 'dd/MM/yyyy') : data.addedAt}</p>
           </div>
           <div className="right-side">
             <h5>Category</h5>
