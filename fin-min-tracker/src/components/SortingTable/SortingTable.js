@@ -1,7 +1,7 @@
-import React, { useMemo } from 'react'
-import { useTable, useSortBy, useExpanded } from 'react-table'
-import { format } from 'date-fns'
-
+import React, {useMemo} from 'react'
+import {useTable, useSortBy, useExpanded} from 'react-table'
+import {format} from 'date-fns'
+import CollapseRowTranscations from "../../components/CollapseRowTransactions/CollapseRowTransactions";
 
 export default function SortingTable(props) {
   const Columns = useMemo(() => [
@@ -9,7 +9,7 @@ export default function SortingTable(props) {
       // Make an expander cell
       Header: () => null, // No header
       id: 'expander', // It needs an ID
-      Cell: ({ row }) => (
+      Cell: ({row}) => (
         // Use Cell to render an expander for each row.
         // We can use the getToggleRowExpandedProps prop-getter
         // to build the expander.
@@ -21,7 +21,7 @@ export default function SortingTable(props) {
     {
       Header: 'Date',
       accessor: 'date',
-      Cell: ({ value }) => { return format(new Date(value), 'dd/MM/yyyy') }
+      Cell: ({value}) => {return format(new Date(value), 'dd/MM/yyyy')}
     },
     {
       Header: 'Type',
@@ -57,17 +57,11 @@ export default function SortingTable(props) {
     rows,
     prepareRow,
     visibleColumns,
-    state: { expanded } } = tableInstance
+    state: {expanded}} = tableInstance
   const renderRowSubComponent = React.useCallback(
-    ({ row }) => {
+    ({row}) => {
       return (
-        <pre
-          style={{
-            fontSize: '10px',
-          }}
-        >
-          <code>{JSON.stringify({ values: row.values }, null, 2)}</code>
-        </pre>
+        <CollapseRowTranscations transaction={row.values}></CollapseRowTranscations>
       )
     },
     []
@@ -102,7 +96,7 @@ export default function SortingTable(props) {
               {row.isExpanded ? (
                 <tr>
                   <td colSpan={visibleColumns.length}>
-                    {renderRowSubComponent({ row })}
+                    {renderRowSubComponent({row})}
                   </td>
                 </tr>
               ) : null}

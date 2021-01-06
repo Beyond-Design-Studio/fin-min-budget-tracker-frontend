@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import axios from 'axios'
 import './transactionPage.module.css'
-import CollapseRowTranscations from "../../components/CollapseRowTransactions/CollapseRowTransactions";
 import SortingTable from '../../components/SortingTable/SortingTable';
 
 
@@ -16,7 +15,7 @@ export default class TransactionPage extends Component {
     let minName = this.props.minName
     const api = 'https://ashokafinanceministry.herokuapp.com/api/'
     const token = 'finmin00'
-    axios.get(api + minName + '/transactions', { headers: { "Authorization": `Bearer ${token}` } })
+    axios.get(api + minName + '/transactions', {headers: {"Authorization": `Bearer ${token}`}})
       .then(res => {
         console.log('mount', res.data);
         this.setState({
@@ -31,7 +30,7 @@ export default class TransactionPage extends Component {
       let minName = this.props.minName
       const api = 'https://ashokafinanceministry.herokuapp.com/api/'
       const token = 'finmin00'
-      axios.get(api + minName + '/transactions', { headers: { "Authorization": `Bearer ${token}` } })
+      axios.get(api + minName + '/transactions', {headers: {"Authorization": `Bearer ${token}`}})
         .then(res => {
           console.log('transactions', res.data);
           this.setState({
@@ -47,7 +46,7 @@ export default class TransactionPage extends Component {
     // console.log(this.state.data, "Datacheck");
     if (this.state.ready) {
       return (
-        <div style={{ background: "#FFFBDB" }}>
+        <div style={{background: "#FFFBDB"}}>
           <h3>Transactions Page</h3>
           <SortingTable data={Object.values(this.state.data)} />
         </div>
@@ -55,7 +54,7 @@ export default class TransactionPage extends Component {
       )
     }
     else {
-      return <h2 style={{ textAlign: 'center' }}>Transactions Loading...</h2>
+      return <h2 style={{textAlign: 'center'}}>Transactions Loading...</h2>
     }
 
     /*
