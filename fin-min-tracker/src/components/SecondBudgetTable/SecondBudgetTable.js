@@ -36,7 +36,7 @@ export default class SecondBudgetTable extends Component {
     const modalVisible = this.state.modalVisible
     if (modalVisible) {
       return (
-        <SecondModal tag={this.state.rowClicked} clicked={this.modalToggleHandler} minName={this.props.minName} categoryTitle={this.props.categoryTitle} />
+        <SecondModal className={styles.Modal} tag={this.state.rowClicked} clicked={this.modalToggleHandler} minName={this.props.minName} categoryTitle={this.props.categoryTitle} />
       )
     }
     else {

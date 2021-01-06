@@ -7,8 +7,9 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.1.2",
     "@testing-library/user-event": "^12.2.2",
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "chart.js": "^2.9.4",
+    "date-fns": "^2.16.1",
     "dotenv": "^8.2.0",
     "firebase": "^8.2.1",
     "materialize-css": "^1.0.0-rc.2",
@@ -23,6 +24,7 @@
     "react-responsive-carousel": "^3.2.11",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
+    "react-table": "^7.6.2",
     "styled-components": "^5.2.1",
     "web-vitals": "^0.2.4"
   },
