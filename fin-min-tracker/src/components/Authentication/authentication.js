@@ -21,42 +21,45 @@ try {
 
 // Configure FirebaseUI.
 const uiConfig = {
-  // Popup signin flow rather than redirect flow.
-  signInFlow: 'popup',
-  // We will display Google as auth provider.
-  signInOptions: [
-    firebase.auth.GoogleAuthProvider.PROVIDER_ID
-  ],
-  callbacks: {
-    // Avoid redirects after sign-in.
-    signInSuccessWithAuthResult: () => false,
-  },
+    // Popup signin flow rather than redirect flow.
+    signInFlow: 'popup',
+    // We will display Google as auth provider.
+    signInOptions: [
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID
+    ],
+    callbacks: {
+        //  redirects after sign-in.
+        signInSuccessWithAuthResult: () => true
+    },
+    signInSuccessUrl: '/home',
+
 };
 
-function SignInScreen() {
-  const [isSignedIn, setIsSignedIn] = useState(false); // Local signed-in state.
+function SignInScreen(props) {
+    const [isSignedIn, setIsSignedIn] = useState(false); // Local signed-in state.
 
-  // Listen to the Firebase Auth state and set the local state.
-  useEffect(() => {
-    const unregisterAuthObserver = firebase.auth().onAuthStateChanged(user => {
-      setIsSignedIn(!!user);
-    });
-    return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
-  }, []);
+    // Listen to the Firebase Auth state and set the local state.
+    useEffect(() => {
+        const unregisterAuthObserver = firebase.auth().onAuthStateChanged(user => {
+            setIsSignedIn(!!user);
+        });
+        return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
+    }, []);
 
-  if (!isSignedIn) {
-    return (
-      <div>
-        <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
-      </div>
-    );
-  }
-  return (
-    <div>
-      <p>Welcome {firebase.auth().currentUser.displayName}! You are now signed-in!</p>
-      <button onClick={() => firebase.auth().signOut()}>Sign-out</button>
-    </div>
-  );
+    if (!isSignedIn) {
+        return (
+            <div>
+                <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+            </div>
+        );
+    } else { 
+        return (
+            <div>
+                <p>Welcome {firebase.auth().currentUser.displayName}</p>
+                <button onClick={() => firebase.auth().signOut()}>Sign-out</button>
+            </div>
+        );
+    }
 }
 
 export default SignInScreen;

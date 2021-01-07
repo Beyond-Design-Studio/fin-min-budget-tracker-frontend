@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import ExpandableTable from '../../components/ExpandableTable/ExpandableTable'
+import firebase from 'firebase/app';
+import {withRouter } from "react-router-dom";
 import styles from './BudgetPage.module.css'
-export default class BudgetPage extends Component {
+class BudgetPage extends Component {
   state = {
     ready: false,
     budget: null,
@@ -19,6 +21,12 @@ export default class BudgetPage extends Component {
           budget: res.data
         })
       })
+    firebase.auth().onAuthStateChanged(user => {
+      if (user === null) {
+        console.log(firebase.auth().currentUser);
+        this.props.history.push('/');
+      }
+    });
   }
 
   componentDidUpdate() {
@@ -35,6 +43,12 @@ export default class BudgetPage extends Component {
           })
         })
     }
+    firebase.auth().onAuthStateChanged(user => {
+      if (user === null) {
+        console.log(firebase.auth().currentUser);
+        this.props.history.push('/');
+      }
+    });
   }
 
   render() {
@@ -47,3 +61,4 @@ export default class BudgetPage extends Component {
     )
   }
 }
+export default withRouter(BudgetPage)

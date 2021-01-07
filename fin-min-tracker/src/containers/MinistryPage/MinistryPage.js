@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import Details from '../../components/Details/Details'
+import firebase from 'firebase/app';
+import {withRouter } from "react-router-dom";
 
 import PieChart from '../../components/PieChart/PieChart'
 import BarChart from '../../components/BarChart/BarChart'
@@ -9,7 +11,7 @@ import SecondLevelTable from '../../components/SecondLevelTable/SecondLevelTable
 import DonutSpinner from "../../components/DonutSpinner/donutSpinner";
 import axios from 'axios'
 
-export default class MinistryPage extends Component {
+class MinistryPage extends Component {
   state = {
     name: "",
     ministerName: "",
@@ -33,7 +35,14 @@ export default class MinistryPage extends Component {
           finances: res.data.finances,
           ready: true
         })
-      })
+      });
+    
+    firebase.auth().onAuthStateChanged(user => {
+      if (user === null) {
+        console.log(firebase.auth().currentUser);
+        this.props.history.push('/');
+      }
+    });
   }
   componentDidUpdate() {
     if (this.state.ready === false) {
@@ -51,6 +60,12 @@ export default class MinistryPage extends Component {
           })
         })
     }
+    firebase.auth().onAuthStateChanged(user => {
+      if (user === null) {
+        console.log(firebase.auth().currentUser);
+        this.props.history.push('/');
+      }
+    });
   }
   render() {
     if (this.state.ready) {
@@ -73,3 +88,5 @@ export default class MinistryPage extends Component {
   }
 
 }
+
+export default withRouter(MinistryPage);
