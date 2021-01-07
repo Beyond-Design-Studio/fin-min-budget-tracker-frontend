@@ -35,6 +35,7 @@ export default class ExpandableTable extends Component {
               </svg></td>
               <td>{budget[title].current}</td>
               <td>{budget[title].total}</td>
+              <td>{budget[title].current/budget[title].total * 100}%</td>
             </tr >)
         }
         else {
@@ -43,6 +44,7 @@ export default class ExpandableTable extends Component {
               <td>{title}</td>
               <td>{budget[title].current}</td>
               <td>{budget[title].total}</td>
+              <td>{Math.round(budget[title].current/budget[title].total) * 100}%</td>
             </tr>
           )
         }
@@ -64,6 +66,7 @@ export default class ExpandableTable extends Component {
                     <th>Title</th>
                     <th>Current Budget Amount</th>
                     <th>Total Budget Amount</th>
+                    <th>% Budget</th>
                   </tr>
                 </thead>
                 <tbody>
