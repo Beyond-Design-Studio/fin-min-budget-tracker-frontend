@@ -10,6 +10,17 @@ export default class ExpandableTable extends Component {
     categoryTitle: null
   }
 
+  findPercent = (current, total) => {
+    if ((current === 0) || (total === 0)) {
+      return '-'
+    }
+    else {
+      let percent = Math.round((current / total) * 100)
+      return percent + '%'
+    }
+
+  }
+
   rowClickedHandler = (title) => {
     this.setState({rowClicked: title})
     this.modalToggleHandler()
@@ -35,7 +46,7 @@ export default class ExpandableTable extends Component {
               </svg></td>
               <td>{budget[title].current}</td>
               <td>{budget[title].total}</td>
-              <td>{budget[title].current/budget[title].total * 100}%</td>
+              <td>{this.findPercent(budget[title].current, budget[title].total)}</td>
             </tr >)
         }
         else {
@@ -44,7 +55,7 @@ export default class ExpandableTable extends Component {
               <td>{title}</td>
               <td>{budget[title].current}</td>
               <td>{budget[title].total}</td>
-              <td>{Math.round(budget[title].current/budget[title].total) * 100}%</td>
+              <td>{this.findPercent(budget[title].current, budget[title].total)}</td>
             </tr>
           )
         }
