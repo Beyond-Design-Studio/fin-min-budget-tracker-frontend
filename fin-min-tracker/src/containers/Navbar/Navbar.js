@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
-import { Link, Redirect } from 'react-router-dom'
+import React, {useState} from 'react'
+import {Navbar, Nav, NavItem} from 'react-bootstrap';
+import {Link, Redirect} from 'react-router-dom'
 import firebase from 'firebase/app';
 
 // authentication
 
-export default function NavbarComponent(props) {
+export default function NavbarComponent() {
   const [signendIn, setSignedIn] = useState(false);
   firebase.auth().onAuthStateChanged(user => {
     if (user) {
@@ -17,7 +17,7 @@ export default function NavbarComponent(props) {
 
   return (
     <Navbar bg="dark" variant="dark">
-      <Navbar.Brand as={Link} to="/" >FinMin</Navbar.Brand>
+      <Navbar.Brand as={Link} to="/home" >FinMin</Navbar.Brand>
       <Navbar.Collapse>
         <Nav className="ml-auto">
           <NavItem eventkey={1} href="/">
@@ -26,15 +26,22 @@ export default function NavbarComponent(props) {
           <NavItem>
             {
               signendIn ?
-              <button onClick={() => 
-              {firebase.auth().signOut(); <Redirect to = '/' />}}>Sign-out</button>
-              : ""
-              
+                <button
+                  style={{
+                    backgroundColor: "transparent",
+                    border: "none",
+                    padding: "0.5rem 1rem",
+                    color: "rgba(255,255,255,.5)",
+                  }}
+                  onMouseOver="style.color='rgba(255,255,255,.75)'"
+                  onMouseOut="style.color='green'"
+                  onClick={() => {firebase.auth().signOut(); <Redirect to='/' />}}>Sign-out</button>
+                : ""
+
             }
-            
           </NavItem>
         </Nav>
       </Navbar.Collapse>
-    </Navbar>  
+    </Navbar>
   )
 }
