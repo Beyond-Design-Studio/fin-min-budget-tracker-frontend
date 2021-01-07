@@ -43,8 +43,8 @@ export default function Modal(props) {
 
   return (
     <div className={styles.Modal}>
-      {data &&
-        <div className="table-responsive" style={{"maxHeight": "622px"}}>
+      {data ?
+        <div className="table-responsive" style={{overflowY: "scroll", maxHeight: "662px"}}>
           <table className="table table-borderless">
             <thead className='thead-dark'>
               <tr >
@@ -57,18 +57,14 @@ export default function Modal(props) {
             </thead>
             {dynamicRows}
           </table>
-        </div>
-      }
-
-      {!data &&
-        <div>
+        </div> : <div>
           <div className="Modal" style={{"maxHeight": "100px"}}>
             <div className="donut"></div>
           </div>
           <Backdrop clicked={props.clicked} />
         </div>
       }
-    </div>
+    </div >
 
   )
 

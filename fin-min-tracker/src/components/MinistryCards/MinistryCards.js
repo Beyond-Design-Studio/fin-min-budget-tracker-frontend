@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-// Images were GIVEN to ME by AARAV, just saying.
+// Images were GIVEN to me BY AARAV, just saying.
 import aca_min from "../../assets/mins/academic_ministry.jpg";
 import budg_min from "../../assets/mins/budget_min.jpg";
 import camp_min from "../../assets/mins/campus_Life.jpg";
@@ -13,6 +13,7 @@ import home_min from "../../assets/mins/house_min.jpg";
 import parl_min from "../../assets/mins/parliamentary_min.jpg";
 import sprt_min from "../../assets/mins/sports_min.jpg";
 import tech_min from "../../assets/mins/tech_min.jpg";
+
 import styles from './MinistryCards.module.css'
 
 // An object mapping ministry to it's image.
