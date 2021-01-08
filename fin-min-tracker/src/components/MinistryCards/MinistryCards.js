@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 // Images were GIVEN to me BY AARAV, just saying.
 import aca_min from "../../assets/mins/academic_ministry.jpg";
@@ -34,7 +34,7 @@ const minToImg = {
 
 export default function MinistryCards(props) {
   return (
-    <div style={{backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(${minToImg[props.name]})`}} className={styles.Card}>
+    <div className={styles.Container} style={{ backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(${minToImg[props.name]})` }} className={styles.Card}>
       <h1 className={styles.Title}>{props.name}</h1>
 
       <div className={styles.Links}>
