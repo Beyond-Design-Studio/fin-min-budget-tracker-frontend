@@ -19,9 +19,9 @@ const home = (props) => {
   });
 
   const customRenderThumb = (children) =>
-  children.map((_, index) => {
-    return <p>{props.ministries[index]}</p>;
-  });
+    children.map((_, index) => {
+      return <div className="carousel-thumb"><p>{props.ministries[index]}</p></div>;
+    });
 
   const dynamicCards = props.ministries.map(ministry => {
     return <MinistryCard style={{backgroundColor: "blue"}} name={ministry} />
@@ -29,12 +29,12 @@ const home = (props) => {
 
   return (
     <div className="CarouselDiv">
-    <div className="CarouselContain">
-      <Carousel renderThumbs={customRenderThumb} showStatus={false} showArrows={true}>
-      {dynamicCards}
-      </Carousel>
-  </div>
-  </div>
+      <div className="CarouselContain">
+        <Carousel renderThumbs={customRenderThumb} showStatus={false} showArrows={true}>
+          {dynamicCards}
+        </Carousel>
+      </div>
+    </div>
   )
 }
 

@@ -1,7 +1,9 @@
-import React, { useState } from "react";
-import styles from "./CollapseRowTranscations.module.css";
-import { format } from 'date-fns'
+import React, {useEffect} from "react";
+import {format} from 'date-fns'
 
+import ProgressBar from "../ProgressBar/Progress";
+
+import styles from "./CollapseRowTranscations.module.css";
 
 const data = {
   "addedAt": 1606111913,
@@ -29,6 +31,8 @@ const CollapseRowTranscations = (props) => {
   */
 
   // console.log(transaction);
+
+
   return (
     <div>
       <div className={styles.SecondModalDropTab}>
@@ -39,13 +43,13 @@ const CollapseRowTranscations = (props) => {
         <div className={styles.Content}>
           <div className="mid-side">
             <h5>Details</h5>
-            <p>{props.transaction ? props.transaction.details : data.details}</p>
+            <p className={styles.paddingBottom}>{props.transaction ? props.transaction.details : data.details}</p>
             <h5>Date</h5>
             <p>{props.transaction ? format(new Date(props.transaction.date), 'dd/MM/yyyy') : data.date}</p>
           </div>
           <div className="right-side">
             <h5>Description</h5>
-            <p>{props.transaction ? props.transaction.description : data.description}</p>
+            <p className={styles.paddingBottom}>{props.transaction ? props.transaction.description : data.description}</p>
             <h5>Total</h5>
             <p>{props.transaction ? props.transaction.total : data.total}</p>
           </div>
@@ -60,17 +64,17 @@ const CollapseRowTranscations = (props) => {
         <div className={styles.Content}>
           <div className="mid-side-left">
             <h5>Type</h5>
-            <p>{props.transaction ? props.transaction.type : data.type}</p>
+            <p className={styles.paddingBottom}>{props.transaction ? props.transaction.type : data.type}</p>
             <h5>Tag</h5>
             <p>{props.transaction ? props.transaction.tags : data.tags}</p>
           </div>
           <div className="mid-side-right">
             <h5>Added at</h5>
-            <p>{props.transaction ? format(new Date(props.transaction.addedAt), 'dd/MM/yyyy') : data.addedAt}</p>
+            <p>{props.transaction ? format(new Date(props.transaction.addedAt), 'dd/MM/yyyy') : format(new Date(data.addedAt), 'dd/MM/yyyy')}</p>
           </div>
           <div className="right-side">
             <h5>Category</h5>
-            <p>{props.transaction ? props.transaction.category : data.category}</p>
+            <p className={styles.paddingBottom}>{props.transaction ? props.transaction.category : data.category}</p>
             <h5>Bundle</h5>
             <p>{props.transaction ? props.transaction.bundle ? "yes" : "no" : "no"}</p>
           </div>
@@ -86,6 +90,9 @@ const CollapseRowTranscations = (props) => {
           <div className="mid-side">
             <h5>Status</h5>
             <p>{props.transaction ? props.transaction.status : data.status}</p>
+            <ProgressBar state={props.transaction ? props.transaction.status : data.status}></ProgressBar>
+            <ProgressBar state={"Reimbursed"}></ProgressBar>
+            <ProgressBar state={"Accounting Complete"}></ProgressBar>
           </div>
           <div className="right-side">
             <h5>Link</h5>

@@ -3,8 +3,8 @@
   align-items: center;
   justify-content: space-around;
   border-bottom: 1px solid #463f3a;
-  
 }
+
 .SecondModalDropTab:last-child {
   border: none;
 }

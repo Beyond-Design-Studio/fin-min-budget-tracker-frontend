@@ -3,6 +3,8 @@ import {Navbar, Nav, NavItem} from 'react-bootstrap';
 import {Link, Redirect} from 'react-router-dom'
 import firebase from 'firebase/app';
 
+import "./Navbar.css";
+
 // authentication
 
 export default function NavbarComponent() {
@@ -17,7 +19,7 @@ export default function NavbarComponent() {
 
   return (
     <Navbar bg="dark" variant="dark">
-      <Navbar.Brand as={Link} to="/home" >FinMin</Navbar.Brand>
+      <Navbar.Brand as={Link} to="/home">Finance Ministry</Navbar.Brand>
       <Navbar.Collapse>
         <Nav className="ml-auto">
           <NavItem eventkey={1} href="/">
@@ -27,15 +29,9 @@ export default function NavbarComponent() {
             {
               signendIn ?
                 <button
-                  style={{
-                    backgroundColor: "transparent",
-                    border: "none",
-                    padding: "0.5rem 1rem",
-                    color: "rgba(255,255,255,.5)",
-                  }}
-                  onMouseOver="style.color='rgba(255,255,255,.75)'"
-                  onMouseOut="style.color='green'"
-                  onClick={() => {firebase.auth().signOut(); <Redirect to='/' />}}>Sign-out</button>
+                  className="nav-sign-out"
+                  onClick={() => {firebase.auth().signOut(); <Redirect to='/' />}}
+                >Sign-out</button>
                 : ""
 
             }

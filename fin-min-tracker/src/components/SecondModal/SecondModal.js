@@ -1,9 +1,8 @@
-import React, {Component, useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import styles from './SecondModal.module.css'
 import Backdrop from '../../containers/Backdrop/Backdrop'
 import Axios from 'axios'
 import CollapseRow from "../CollapseRow/CollapsedRow"
-import DonutSpinner from "../DonutSpinner/donutSpinner";
 
 
 export default function Modal(props) {
@@ -24,12 +23,12 @@ export default function Modal(props) {
         tags: tagTitle
       }
     }
-    Axios.get(api + minName + '/budget' + '/filter', config)
+    Axios.get(api + minName + '/budget/filter', config)
       .then(res => {
         setData(res.data);
         setReady(true);
       })
-  }, []);
+  }, [props]);
 
   const dataKeys = data ? Object.keys(data) : null;
   const dataValue = data;
@@ -43,9 +42,9 @@ export default function Modal(props) {
 
   return (
     <div className={styles.Modal}>
-      {data ?
-        <div className="table-responsive" style={{overflowY: "scroll", maxHeight: "662px"}}>
-          <table className="table table-borderless">
+      {ready ?
+        <div className="table-responsive" style={{overflowY: "auto", maxHeight: "662px"}}>
+          <table className="table table-borderless" style={{overflowY: "auto"}}>
             <thead className='thead-dark'>
               <tr >
                 <th >#</th>
@@ -58,7 +57,7 @@ export default function Modal(props) {
             {dynamicRows}
           </table>
         </div> : <div>
-          <div className="Modal" style={{"maxHeight": "100px"}}>
+          <div className="Modal">
             <div className="donut"></div>
           </div>
           <Backdrop clicked={props.clicked} />

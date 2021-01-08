@@ -1,7 +1,7 @@
 .Card {
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-position: center center, center center;
+  background-repeat: no-repeat, no-repeat;
+  background-size: cover, cover;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   height: 100vh;
@@ -16,7 +16,7 @@
 .Title{
   padding-bottom: 5%;
   font-weight: 600;
-  color: black;
+  color: white;
   text-shadow: 2px 2px 2px #212529;
 }
 
@@ -27,7 +27,7 @@
 
 .Link {
   padding: 2% 0;
-  color: black;
+  color: white;
   font-size: 20px;
   font-weight: 400;
   text-shadow: 2px 2px 2px #212529;

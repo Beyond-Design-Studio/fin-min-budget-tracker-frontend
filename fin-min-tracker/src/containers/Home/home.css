@@ -58,28 +58,11 @@
 .main {
   padding-bottom: 100px;
 }
-.Slide {
-  background-color: whi;
-}
 
 .CarouselDiv {
   min-height: 100vh;
 }
 
-.thumb{
-  width: 5rem !important;
-  transition: width 150ms ease-in-out !important;
-}
-
-.thumb:hover {
-  width: 15rem !important;
-}
-
-.thumb.selected {
-  width: 9rem !important;
-  border: none;
-  background-color: grey;
-}
 
 @media only screen and (min-width: 768px) {
   .CarouselDiv {
@@ -90,6 +73,42 @@
   .CarouselContain {
     padding: 2rem 7rem;
   }
+  .thumb{
+    width: fit-content !important;
+    transition: width 150ms ease-in-out !important;
+    border: none !important;
+  }
 
+  .carousel-thumb {
+    padding: 0.25rem;
+  }
+
+
+  .thumb:hover {
+    background-color: grey;
+  }
+
+  .thumb.selected {
+    width: fit-content !important;
+    background-color: grey;
+    display: inline-block;
+  }
+
+  .thumbs {
+    overflow-x: auto;
+  }
+
+  .thumbs::-webkit-scrollbar {
+    width: 1px;
+    height: 4px;
+  }
+
+  .thumbs::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+  .thumbs::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
 }
 

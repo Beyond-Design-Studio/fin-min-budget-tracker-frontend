@@ -96,7 +96,7 @@ export default function SortingTable(props) {
               prepareRow(row)
               return (
                 <>
-                  <tr {...row.getRowProps()} className={props.data[index].type === "spendings" ? "table-danger" : "table-success"}>
+                  <tr key={index} {...row.getRowProps()} className={props.data[index].type === "spendings" ? "table-danger" : "table-success"}>
                     {row.cells.map(cell => {
                       return (<td {...cell.getCellProps()}>{cell.render('Cell')}</td>)
                     })}

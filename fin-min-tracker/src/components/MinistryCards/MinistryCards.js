@@ -34,7 +34,7 @@ const minToImg = {
 
 export default function MinistryCards(props) {
   return (
-    <div style={{backgroundImage: `url(${minToImg[props.name]})`}} className={styles.Card}>
+    <div style={{backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(${minToImg[props.name]})`}} className={styles.Card}>
       <h1 className={styles.Title}>{props.name}</h1>
 
       <div className={styles.Links}>

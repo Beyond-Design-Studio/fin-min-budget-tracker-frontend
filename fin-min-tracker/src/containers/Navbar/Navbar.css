@@ -1,0 +1,10 @@
+.nav-sign-out {
+  background-color: transparent;
+  border: none;
+  padding: .5rem 1rem;
+  color: rgba(255, 255, 255, .5);
+}
+
+.nav-sign-out:hover {
+  color: rgba(255, 255, 255, .75);
+}
