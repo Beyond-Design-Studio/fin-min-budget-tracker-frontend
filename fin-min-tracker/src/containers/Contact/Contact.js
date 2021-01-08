@@ -8,27 +8,27 @@ const members = [
   {
     name: "Arundhati Rajan",
     position: "Finance Minister",
-    email: "arundhati.rajan_ug22@gmail.com"
+    email: "arundhati.rajan_ug22@ashoka.edu.in"
   },
   {
     name: "Satvik Agarwal",
     position: "General Financial Advisor",
-    email: "satvik.agarwal_ug22@gmail.com"
+    email: "satvik.agarwal_ug22@ashoka.edu.in"
   },
   {
     name: "Tanish Bafna",
     position: "Finance Minister",
-    email: "tanish.bafna_ug22@gmail.com"
+    email: "tanish.bafna_ug22@ashoka.edu.in"
   },
   {
     name: "Shreeyanshi Atharav",
     position: "Co-Head of Reimbursements",
-    email: "shreeyanshi.atharav_ug22@gmail.com"
+    email: "shreeyanshi.atharav_ug22@ashoka.edu.in"
   },
   {
     name: "Varun Upamanyu",
     position: "Co-Head of Reimbursements",
-    email: "varun.upamanyu_ug21@gmail.com"
+    email: "varun.upamanyu_ug21@ashoka.edu.in"
   },
 ]
 
@@ -38,7 +38,7 @@ const Contact = () => {
       <div className="left-contact panel">
         <div className="left-title">
           <h5>Finance Ministry</h5>
-          <p>finance.ministry@gmial.com</p>
+          <p>finance.ministry@ashoka.edu.in</p>
         </div>
 
         <div className="left-members">
@@ -65,7 +65,7 @@ const Contact = () => {
           <h5 className="right-field-title">Contanct Us</h5>
           <div className="input-field">
             <input id="your_name" type="text" class="validate" />
-            <label for="your_name">Kimi no na wa</label>
+            <label for="your_name">Your Name</label>
           </div>
           <div className="input-field">
             <input id="mail" type="text" class="validate" />

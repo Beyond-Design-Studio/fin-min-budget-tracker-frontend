@@ -73,6 +73,7 @@
   .CarouselContain {
     padding: 2rem 7rem;
   }
+
   .thumb{
     width: fit-content !important;
     transition: width 150ms ease-in-out !important;

@@ -11,6 +11,7 @@ import BudgetPage from './containers/BudgetPage/BudgetPage';
 import TransactionPage from './containers/TransactionsPage/TransactionPage';
 import Landing from "./containers/LandingPage/landingPage";
 import Contact from "./containers/Contact/Contact";
+import Footer from "./containers/Footer/Footer";
 
 const ErrorPage = (props) => {
   props.history.push('/');
@@ -65,6 +66,7 @@ const App = () => {
         <Route path='/transactions/:ministry' render={routerProps => (renderTransactionsPage(routerProps))} />
         <Route path='*' component={ErrorPage} />
       </Switch>
+      <Footer />
     </div>
   )
 

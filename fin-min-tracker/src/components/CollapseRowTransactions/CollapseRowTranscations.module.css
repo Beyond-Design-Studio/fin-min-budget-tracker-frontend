@@ -18,11 +18,16 @@
   }
 
   .Content {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    display: grid;
     min-width: 30rem;
     gap: 3rem;
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+    justify-content: space-between;
+  }
+
+  .Content * {
+    justify-self: center;
+    align-self: center;
   }
 
   .paddingBottom {
