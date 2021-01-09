@@ -1,3 +1,22 @@
+.footer-container {
+  height: 5rem;
+  background-color: #343a40;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.react-logo {
+  height: 4rem;
+}
+
+.sg_logo {
+  height: 4rem;
+  width: 4rem;
+}
+
+
 @media only screen and (min-width: 768px) {
   .footer-container {
     height: 5rem;
