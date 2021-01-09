@@ -5,7 +5,7 @@ import DonutSpinner from "../../components/DonutSpinner/donutSpinner";
 
 import "./transactionPage.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css"
-import {withRouter } from "react-router-dom";
+import {withRouter} from "react-router-dom";
 import firebase from 'firebase/app';
 
 
@@ -28,12 +28,12 @@ class TransactionPage extends Component {
           data: res.data
         })
       })
-      firebase.auth().onAuthStateChanged(user => {
-        if (user === null) {
-          console.log(firebase.auth().currentUser);
-          this.props.history.push('/');
-        }
-      });
+    firebase.auth().onAuthStateChanged(user => {
+      if (user === null) {
+        console.log(firebase.auth().currentUser);
+        this.props.history.push('/');
+      }
+    });
   }
 
   componentDidUpdate() {
@@ -50,13 +50,14 @@ class TransactionPage extends Component {
           })
         }
         )
-    
-        firebase.auth().onAuthStateChanged(user => {
-          if (user === null) {
-            console.log(firebase.auth().currentUser);
-            this.props.history.push('/');
-          }
-        });  }
+
+      firebase.auth().onAuthStateChanged(user => {
+        if (user === null) {
+          console.log(firebase.auth().currentUser);
+          this.props.history.push('/');
+        }
+      });
+    }
   }
 
   render() {
@@ -71,7 +72,9 @@ class TransactionPage extends Component {
       )
     }
     else {
-      return <DonutSpinner></DonutSpinner>
+      return (
+        <DonutSpinner></DonutSpinner>
+      )
     }
 
     /*

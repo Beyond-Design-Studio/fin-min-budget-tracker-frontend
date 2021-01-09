@@ -6,8 +6,7 @@ const Landing = () => {
   return (
     <div className="landing-container">
       <div className="landing left hide-on-med-and-down"></div>
-
-        <SignInScreen />
+      <SignInScreen></SignInScreen>
     </div>
   )
 }
