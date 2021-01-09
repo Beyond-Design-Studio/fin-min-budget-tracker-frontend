@@ -63,7 +63,7 @@
 }
 
 .thumbs {
-  overflow-x: auto;
+  overflow: auto;
 }
 
 .thumbs::-webkit-scrollbar {
