@@ -77,7 +77,7 @@ export default class ExpandableTable extends Component {
                     <th>Title</th>
                     <th>Current Budget Amount</th>
                     <th>Total Budget Amount</th>
-                    <th>% Budget</th>
+                    <th>Proportion of Budget</th>
                   </tr>
                 </thead>
                 <tbody>
