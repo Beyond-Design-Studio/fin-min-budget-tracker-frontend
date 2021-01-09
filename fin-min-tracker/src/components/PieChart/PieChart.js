@@ -9,9 +9,9 @@ export default function PieChart(props) {
     datasets: [
       {
         label: 'Amount',
-        backgroundColor: ['#B21F00',
-          '#C9DE00',
-          '#2FDE00'],
+        backgroundColor: ['#f17cb0',
+          '#faa43a',
+          '#60bd68'],
         hoverBackgroundColor: [
           '#501800',
           '#4B5000',
@@ -33,7 +33,7 @@ export default function PieChart(props) {
               display: true,
               text: 'Budget Breakdown',
               fontSize: 16,
-              fontColor: 'white'
+              fontColor: 'Black'
             },
             legend: {
               display: false,

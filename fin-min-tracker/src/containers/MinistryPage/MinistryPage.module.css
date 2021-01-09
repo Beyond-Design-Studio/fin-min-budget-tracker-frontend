@@ -1,6 +1,6 @@
 .MinistryPage {
-  background-color: #282c34;
-  color: white;
+  background-color: #fffbdb;
+  color:#282c34 ;
   display: flex;
   flex-direction: column;
   gap: 5rem;

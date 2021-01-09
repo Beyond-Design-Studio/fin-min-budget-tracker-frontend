@@ -10,7 +10,7 @@ export default function BarChart(props) {
         label: 'Budget Comparison',
         backgroundColor: 'rgba(75,192,192,1)',
         borderColor: 'rgba(0,0,0,1)',
-        borderWidth: 2,
+        borderWidth: 0,
         data: [dataValues.totalBudget, dataValues.currentBudget, 0]
       }
     ]
@@ -19,31 +19,33 @@ export default function BarChart(props) {
     <div>
       <Bar
         data={dataSet}
-        width={600}
+        width={800}
         height={300}
         options={{
           title: {
             display: true,
             text: 'Budget Comparsion',
             fontSize: 16,
-            fontColor: 'white'
+            fontColor: "#282c34"
           },
           legend: {
             display: false,
             position: 'bottom'
           },
-          maintainAspectRatio: false,
+          maintainAspectRatio: true,
           scales: {
             xAxes: [{
+              barPercentage:1,
+              categoryPercentage: 0.5,
               display: true,
               ticks: {
-                fontColor: 'white'
+                fontColor: 'black',
               }
             }],
             yAxes: [{
-              display: false,
+              display: true,
               ticks: {
-                fontColor: 'white'
+                fontColor: '#282c34e'
               }
             }]
           }
