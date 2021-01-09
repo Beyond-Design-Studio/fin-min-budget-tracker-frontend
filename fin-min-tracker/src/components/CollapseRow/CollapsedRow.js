@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { format } from 'date-fns'
+import React, {useState} from "react";
+import {format} from 'date-fns'
 
 import CollapseRowTranscations from "../CollapseRowTransactions/CollapseRowTransactions";
 
@@ -19,10 +19,9 @@ const data = {
 
 const CollapseRow = (props) => {
   const [toggleClick, setToggleClick] = useState(false);
-  console.log("qwertyuqwertyui", props)
   return (
     <tbody>
-      <tr style={{ cursor: "pointer" }} className="collapse-head" onClick={() => setToggleClick(!toggleClick)}>
+      <tr style={{cursor: "pointer"}} className="collapse-head" onClick={() => setToggleClick(!toggleClick)}>
         <td>{toggleClick ? "▼" : "▶"}</td>
         <td>{props.dataVal ? props.dataVal.tags : data.tags}</td>
         <td>{props.dataVal ? props.dataVal.total : data.total}</td>

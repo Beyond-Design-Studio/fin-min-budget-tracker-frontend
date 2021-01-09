@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import styles from './SecondModal.module.css'
 import Backdrop from '../../containers/Backdrop/Backdrop'
 import Axios from 'axios'
@@ -17,7 +17,7 @@ export default function Modal(props) {
     const tagTitle = props.tag
 
     let config = {
-      headers: { "Authorization": `Bearer ${token}` },
+      headers: {"Authorization": `Bearer ${token}`},
       params: {
         category: categoryTitle,
         tags: tagTitle
@@ -32,7 +32,6 @@ export default function Modal(props) {
 
   const dataKeys = data ? Object.keys(data) : null;
   const dataValue = data;
-  console.log(data)
 
   const dynamicRows = dataKeys ? dataKeys.map(index => {
     return (

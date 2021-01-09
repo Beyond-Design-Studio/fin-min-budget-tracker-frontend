@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import ExpandableTable from '../../components/ExpandableTable/ExpandableTable'
 import firebase from 'firebase/app';
-import {withRouter } from "react-router-dom";
+import {withRouter} from "react-router-dom";
 import styles from './BudgetPage.module.css'
 class BudgetPage extends Component {
   state = {
@@ -15,7 +15,6 @@ class BudgetPage extends Component {
     const token = 'finmin00'
     axios.get(api + minName + '/budget', {headers: {"Authorization": `Bearer ${token}`}})
       .then(res => {
-        console.log('mount', res.data);
         this.setState({
           ready: true,
           budget: res.data
@@ -23,7 +22,6 @@ class BudgetPage extends Component {
       })
     firebase.auth().onAuthStateChanged(user => {
       if (user === null) {
-        console.log(firebase.auth().currentUser);
         this.props.history.push('/');
       }
     });
@@ -36,7 +34,6 @@ class BudgetPage extends Component {
       const token = 'finmin00'
       axios.get(api + minName + '/budget', {headers: {"Authorization": `Bearer ${token}`}})
         .then(res => {
-          console.log('budget', res.data);
           this.setState({
             ready: true,
             budget: res.data
@@ -45,7 +42,6 @@ class BudgetPage extends Component {
     }
     firebase.auth().onAuthStateChanged(user => {
       if (user === null) {
-        console.log(firebase.auth().currentUser);
         this.props.history.push('/');
       }
     });

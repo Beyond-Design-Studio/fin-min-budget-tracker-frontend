@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import styles from './SecondBudgetTable.module.css'
 import SecondModal from '../../components/SecondModal/SecondModal'
 
@@ -13,12 +13,11 @@ export default class SecondBudgetTable extends Component {
     })
   }
   rowClickedHandler = (title) => {
-    this.setState({ rowClicked: title })
+    this.setState({rowClicked: title})
     this.modalToggleHandler()
   }
   render() {
     const tags = (this.props.tags);
-    console.log(this.props.tags);
     const tagList = Object.keys(this.props.tags)
     const dynamicRows = tagList.map(tag => {
       return (

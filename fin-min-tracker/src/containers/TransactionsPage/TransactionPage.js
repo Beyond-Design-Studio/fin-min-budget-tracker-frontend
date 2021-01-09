@@ -22,7 +22,6 @@ class TransactionPage extends Component {
     const token = 'finmin00'
     axios.get(api + minName + '/transactions', {headers: {"Authorization": `Bearer ${token}`}})
       .then(res => {
-        console.log('mount', res.data);
         this.setState({
           ready: true,
           data: res.data
@@ -30,7 +29,6 @@ class TransactionPage extends Component {
       })
     firebase.auth().onAuthStateChanged(user => {
       if (user === null) {
-        console.log(firebase.auth().currentUser);
         this.props.history.push('/');
       }
     });
@@ -43,7 +41,6 @@ class TransactionPage extends Component {
       const token = 'finmin00'
       axios.get(api + minName + '/transactions', {headers: {"Authorization": `Bearer ${token}`}})
         .then(res => {
-          console.log('transactions', res.data);
           this.setState({
             ready: true,
             data: res.data
@@ -53,7 +50,6 @@ class TransactionPage extends Component {
 
       firebase.auth().onAuthStateChanged(user => {
         if (user === null) {
-          console.log(firebase.auth().currentUser);
           this.props.history.push('/');
         }
       });
