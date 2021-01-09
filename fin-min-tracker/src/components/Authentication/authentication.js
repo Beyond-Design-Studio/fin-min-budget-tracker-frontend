@@ -4,7 +4,7 @@ import firebase from 'firebase';
 import {Link} from "react-router-dom";
 
 const config = {
-  apiKey: "AIzaSyA1kXy0DNpYO3nJvAuZGJR6ItOfCim5q8A",
+  apiKey: `${process.env.REACT_APP_FIREBASE_API_KEY}`,
   authDomain: 'finmin-c0869.firebaseapp.com',
   databaseURL: "https://finmin-c0869.firebaseio.com",
   projectId: "finmin-c0869",
@@ -14,7 +14,9 @@ const config = {
   measurementId: "G-GSFH2KL7MJ"
 };
 try {
-  firebase.initializeApp(config);
+  if (firebase.apps.length === 0) {
+    firebase.initializeApp(config);
+}
 } catch (error) {
   console.log("Error caught at auth: ", error);
 }
