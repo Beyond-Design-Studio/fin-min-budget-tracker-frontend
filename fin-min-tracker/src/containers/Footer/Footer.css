@@ -23,8 +23,10 @@
     background-color: #343a40;
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
+    gap: 2rem;
+    padding: 2rem;
   }
 
   .react-logo {
