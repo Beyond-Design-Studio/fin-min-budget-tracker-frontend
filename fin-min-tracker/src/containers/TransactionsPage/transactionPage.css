@@ -12,6 +12,15 @@
   /* border: #463F3A solid 1px !important; */
 /* } */
 
+.transaction-container {
+  min-height: 100vh;
+  padding-bottom: 3rem;
+}
+
+.transaction-heading {
+  padding: 2rem;
+}
+
 @media only screen and (min-width: 768px) {
   
   .transaction-container {

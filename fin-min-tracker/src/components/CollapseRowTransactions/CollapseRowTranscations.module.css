@@ -1,3 +1,45 @@
+.SecondModalDropTab {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid #463f3a;
+}
+
+.SecondModalDropTab:last-child {
+  border: none;
+}
+.Content {
+  padding: 1rem 0em;
+}
+
+
+@media (max-width: 799px) {
+  .Title h5 {
+    font-size: 1rem;
+  }
+
+  .SecondModalDropTab {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Content {
+    display: flex;
+    min-width: 25rem;
+    justify-content: space-between;
+  }
+
+  .Content h5 {
+    font-size: 0.8em;
+    font-weight: bold;
+    padding: 0.2em 0em;
+  }
+  .Content p {
+    font-size: 0.8em;
+    padding: 0.2em 0em;
+  }
+}
+
 @media (min-width: 800px) {
   .SecondModalDropTab {
     display: flex;
@@ -14,12 +56,17 @@
   .Title {
     min-width: 10rem;
     text-align: left;
-    padding-left: 1rem;
+    padding-left: 2rem;
   }
+  
 
   .Content {
     display: grid;
     min-width: 30rem;
+    align-items: flex-start;
+    justify-content: space-around;
+    min-width: 25rem;
+    padding-top: 1.5rem;
     gap: 3rem;
     grid-template-columns: repeat(3, minmax(150px, 1fr));
     justify-content: space-between;
@@ -29,9 +76,5 @@
     justify-self: center;
     align-self: center;
   }
-
-  .paddingBottom {
-    padding-bottom: 1rem;
-  }
-
+ 
 }

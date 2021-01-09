@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './SecondModal.module.css'
 import Backdrop from '../../containers/Backdrop/Backdrop'
 import Axios from 'axios'
@@ -17,7 +17,7 @@ export default function Modal(props) {
     const tagTitle = props.tag
 
     let config = {
-      headers: {"Authorization": `Bearer ${token}`},
+      headers: { "Authorization": `Bearer ${token}` },
       params: {
         category: categoryTitle,
         tags: tagTitle
@@ -43,8 +43,8 @@ export default function Modal(props) {
   return (
     <div className={styles.Modal}>
       {ready ?
-        <div className="table-responsive" style={{overflowY: "auto", maxHeight: "662px"}}>
-          <table className="table table-borderless" style={{overflowY: "auto"}}>
+        <div className="table-responsive" >
+          <table className="table table-borderless" >
             <thead className='thead-dark'>
               <tr >
                 <th >#</th>
